@@ -20,6 +20,11 @@ p,
 ul {
  margin: 0;
  padding: 0;
+ color: $color-primary;
+}
+
+ul {
+ list-style: none;
 }
 
 a {
@@ -32,6 +37,7 @@ a {
 a:hover {
  color: $color-secondary;
 }
+
 
 .active {
  position: relative;
@@ -47,4 +53,21 @@ a:hover {
  height: 4px;
  background-color: $color-secondary;
  border-radius: 50px;
+}
+
+/* width */
+::-webkit-scrollbar {
+ width: 10px;
+}
+
+::-webkit-scrollbar-track {
+ background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+ background: $color-secondary;
+}
+
+::-webkit-scrollbar-thumb:hover {
+ background: #555;
 }

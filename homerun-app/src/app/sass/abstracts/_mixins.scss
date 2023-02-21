@@ -1,0 +1,13 @@
+@mixin button {
+ padding: 15px 30px;
+ color: $color-secondary;
+ background-color: #FFDBD7;
+ border-radius: 32px;
+ transition: all 0.3s ease-in-out;
+ font-weight: bold;
+
+ &:hover {
+  background-color: $color-secondary;
+  color: #FFDBD7;
+ }
+}

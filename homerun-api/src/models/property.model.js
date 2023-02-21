@@ -27,6 +27,10 @@ const propertyModel = new Schema({
     enum: ["house", "apartment", "office", "modern villa"],
     required: true,
   },
+  views: {
+    type: Number,
+    default: 0,
+  },
   images: [
     {
       type: String,

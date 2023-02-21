@@ -1,0 +1,50 @@
+nav {
+ position: relative;
+ z-index: 2;
+
+ .nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 30px auto;
+
+  .logo-container {
+   display: flex;
+   align-items: center;
+   gap: 7px;
+
+   &__name {
+    font-size: 28px;
+    font-weight: bold;
+   }
+  }
+
+  .links-list {
+   display: flex;
+   align-items: center;
+   gap: 40px;
+
+   &__item {
+    position: relative;
+    font-size: 20px;
+
+    &::before {
+     content: '';
+     position: absolute;
+     left: 0;
+     bottom: -5px;
+     width: 0%;
+     height: 4px;
+     background-color: $color-secondary;
+     border-radius: 50px;
+     transition: width 0.3s ease-in-out;
+    }
+
+    &:hover::before {
+     width: 40%;
+    }
+   }
+  }
+ }
+}

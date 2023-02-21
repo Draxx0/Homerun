@@ -12,7 +12,7 @@ const ProtectedRoute: FC<IProps> = ({ children }) => {
 
   if (!user) return <Navigate to="/auth" />;
 
-  return <>children</>;
+  return <>{children}</>;
 };
 
 export default ProtectedRoute;
