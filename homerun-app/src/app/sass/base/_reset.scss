@@ -1,0 +1,50 @@
+* {
+ font-family: $font-primary;
+}
+
+*,
+::before,
+::after {
+ box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+p,
+ul {
+ margin: 0;
+ padding: 0;
+}
+
+a {
+ text-decoration: none;
+ color: $color-primary;
+ transition: color 0.3s ease-in-out;
+ font-weight: 500;
+}
+
+a:hover {
+ color: $color-secondary;
+}
+
+.active {
+ position: relative;
+ color: $color-secondary;
+}
+
+.active::before {
+ content: '';
+ position: absolute;
+ left: 0;
+ bottom: -5px;
+ width: 40%;
+ height: 4px;
+ background-color: $color-secondary;
+ border-radius: 50px;
+}
