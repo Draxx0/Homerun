@@ -1,10 +1,16 @@
+import axios from "axios";
 import instance from "./api.service";
 import { IProperty } from "../utils/utils";
 
 const endPoint = "/properties";
 
 const getAll = async () => {
-  const response = await instance.get(endPoint);
+  const response = await axios.get(`${process.env.REACT_APP_API_URL}${endPoint}`);
+  return response.data;
+};
+
+const getCategories = async () => {
+  const response = await axios.get(`${process.env.REACT_APP_API_URL}/properties/categories`);
   return response.data;
 };
 
@@ -18,10 +24,17 @@ const deleteOne = async (id: string) => {
   return response.data;
 };
 
+const getMostViewed = async () => {
+  const response = await axios.get(`${process.env.REACT_APP_API_URL}/properties/most-viewed`);
+  return response.data;
+};
+
 const PropertyServices = {
   getAll,
+  getCategories,
   create,
   deleteOne,
+  getMostViewed,
 };
 
 export default PropertyServices;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const Finder = () => {
-  const [type, setType] = useState<string>("Rent");
+  const [type, setType] = useState<string>("Buy");
   return (
     <div className="finder">
       <div className="finder__top">

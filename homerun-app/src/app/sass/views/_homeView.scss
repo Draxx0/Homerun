@@ -30,3 +30,18 @@
   }
  }
 }
+
+.section-categories, .section-most-viewed {
+ width: 90%;
+ margin: 50px auto auto auto;
+
+ .row {
+  gap: 10px
+ }
+
+ h2 {
+  font-size: 44px;
+  margin-top: 20px
+ }
+}
+

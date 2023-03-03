@@ -23,8 +23,8 @@ const propertyModel = new Schema({
     required: true,
   },
   category: {
-    type: [String],
-    enum: ["house", "apartment", "office", "modern villa"],
+    type: String,
+    enum: ["House", "Apartment", "Office", "Modern villa"],
     required: true,
   },
   views: {
@@ -36,6 +36,10 @@ const propertyModel = new Schema({
       type: String,
     },
   ],
+  cover: {
+    type: String,
+    required: true,
+  },
   type: {
     type: String,
     enum: ["rent", "sale"],
@@ -46,4 +50,4 @@ const propertyModel = new Schema({
   },
 });
 
-module.exports = mongoose.model("Customer", propertyModel);
+module.exports = mongoose.model("Property", propertyModel);

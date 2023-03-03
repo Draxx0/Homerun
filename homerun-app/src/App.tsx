@@ -3,15 +3,18 @@ import { BrowserRouter } from "react-router-dom";
 import Router from "./app/routers/Router";
 import Layout from "./app/layouts/Layout";
 import { UserContextProvider } from "./app/contexts/UserContext";
+import { PropertiesContextProvider } from "./app/contexts/PropertiesContext";
 
 function App() {
   return (
     <UserContextProvider>
-      <BrowserRouter>
-        <Layout>
-          <Router />
-        </Layout>
-      </BrowserRouter>
+      <PropertiesContextProvider>
+        <BrowserRouter>
+          <Layout>
+            <Router />
+          </Layout>
+        </BrowserRouter>
+      </PropertiesContextProvider>
     </UserContextProvider>
   );
 }

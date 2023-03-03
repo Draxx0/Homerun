@@ -27,6 +27,22 @@ ul {
  list-style: none;
 }
 
+input {
+ outline: none;
+ caret-color: $color-secondary;
+ color: $color-secondary;
+}
+
+input::placeholder {
+ color: $color-secondary;
+ opacity: 0.7;
+ transition: all ease-in-out .3s;
+}
+
+input:focus::placeholder {
+ color: transparent;
+}
+
 a {
  text-decoration: none;
  color: $color-primary;
@@ -55,7 +71,42 @@ a:hover {
  border-radius: 50px;
 }
 
-/* width */
+.row {
+ display: flex;
+}
+
+.alignCenter {
+ align-items: center;
+}
+
+.spaceBtwn {
+ justify-content: space-between;
+}
+
+.column {
+ display: flex;
+ flex-direction: column;
+}
+
+.uppercase {
+ text-transform: uppercase;
+}
+
+.bold {
+ font-weight: 700;
+}
+
+.colored {
+ color: $color-secondary;
+}
+
+.redbar {
+ width: 29px;
+ height: 4px;
+ background-color: $color-secondary;
+ border-radius: 4px;
+}
+
 ::-webkit-scrollbar {
  width: 10px;
 }
