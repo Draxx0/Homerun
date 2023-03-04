@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
 
 const Navbar = () => {
-  const { user } = useContext(UserContext);
+  const { user, Signout } = useContext(UserContext);
   return (
     <nav>
       <div className="nav-wrapper">
@@ -43,19 +43,33 @@ const Navbar = () => {
         </ul>
 
         {user ? (
-          <div className="user-container">
-            <img
-              src="./assets/icons/user.svg"
-              alt="User"
-              className="user-container__icon"
-            />
-            <span className="user-container__name">{}</span>
+          <div className="row gap-2 alignCenter">
+            <div className="user-container">
+              <img
+                src={user.avatar}
+                alt="User"
+                className="user-container__icon"
+              />
+              <span className="user-container__name">
+                Bonjour <span className="colored bold">{user.firstName}</span>
+              </span>
+            </div>
+            <button className="button" onClick={Signout}>
+              Log out
+            </button>
           </div>
         ) : (
-          <div className="auth-button">
-            <NavLink to="/login" className="button">
-              Login
-            </NavLink>
+          <div className="row gap-2">
+            <div className="auth-button">
+              <Link to="/auth/signup" className="button">
+                Register
+              </Link>
+            </div>
+            <div className="auth-button">
+              <Link to="/auth/signin" className="button">
+                Login
+              </Link>
+            </div>
           </div>
         )}
       </div>

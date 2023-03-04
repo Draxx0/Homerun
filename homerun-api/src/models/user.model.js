@@ -18,6 +18,9 @@ const userSchema = new Schema({
     required: true,
     select: false,
   },
+  avatar: {
+    type: String,
+  },
   properties: [
     {
       type: Schema.Types.ObjectId,

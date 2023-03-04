@@ -11,6 +11,9 @@ import SellView from "../views/sellView/SellView";
 
 const Router = () => {
   const { user } = useContext(UserContext);
+
+  console.log("user", user);
+  
   return (
     <Routes>
       <Route path="/" element={<HomeView />} />
@@ -19,7 +22,7 @@ const Router = () => {
       <Route path="/sell" element={<SellView />} />
       <Route path="/find-agents" element={<FindAgentsView />} />
       <Route path="/news" element={<NewsView />} />
-      {!user && <Route path="/auth" element={<AuthPage />} />}
+      <Route path="/auth/:connect" element={<AuthPage />} />
     </Routes>
   );
 };

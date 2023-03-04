@@ -23,14 +23,35 @@ ul {
  color: $color-primary;
 }
 
+h1 {
+ font-size: 80px;
+}
+
+button {
+ cursor: pointer;
+ border: none;
+ width: fit-content;
+}
+
 ul {
  list-style: none;
 }
 
 input {
  outline: none;
+ border: none;
  caret-color: $color-secondary;
  color: $color-secondary;
+}
+
+input[type="submit"] {
+ cursor: pointer;
+}
+
+input:not(input[type="submit"]) {
+ background-color: #F4F4F4;
+ padding: 13px 10px;
+ border-radius: 6px;
 }
 
 input::placeholder {
@@ -43,11 +64,13 @@ input:focus::placeholder {
  color: transparent;
 }
 
+
 a {
  text-decoration: none;
  color: $color-primary;
  transition: color 0.3s ease-in-out;
  font-weight: 500;
+ width: fit-content;
 }
 
 a:hover {
@@ -98,6 +121,18 @@ a:hover {
 
 .colored {
  color: $color-secondary;
+}
+
+.gap-1 {
+ gap: 10px;
+}
+
+.gap-2 {
+ gap: 20px;
+}
+
+.gap-3 {
+ gap: 30px;
 }
 
 .redbar {

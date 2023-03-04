@@ -44,6 +44,18 @@ nav {
     &:hover::before {
      width: 40%;
     }
+
+
+   }
+  }
+
+  .user-container {
+   display: flex;
+   align-items: center;
+   gap: 20px;
+
+   img {
+    width: 48px;
    }
   }
  }

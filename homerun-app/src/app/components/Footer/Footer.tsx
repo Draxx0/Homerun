@@ -60,7 +60,7 @@ const Footer = () => {
             <input
               type="email"
               name="email"
-              id="email"
+              id="email-newsletter"
               placeholder="votre email ici..."
             />
             <button>Subscribe</button>

@@ -13,7 +13,7 @@ const MainLayout: FC<IProps> = ({ children }) => {
         <Navbar />
       </header>
       <main>
-        <div>{children}</div>
+        <>{children}</>
     </main>
        <Footer />
     </>

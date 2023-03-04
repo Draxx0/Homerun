@@ -30,7 +30,9 @@ type IProps = {
 
 const PropertiesContextProvider: FC<IProps> = ({ children }) => {
   const [properties, setProperties] = useState<IProperty | null>(null);
-  const [categories, setCategories] = useState<IPropertyCategories | null>(null);
+  const [categories, setCategories] = useState<IPropertyCategories | null>(
+    null
+  );
 
   const getProperties = async () => {
     try {

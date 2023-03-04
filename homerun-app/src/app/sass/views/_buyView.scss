@@ -1,0 +1,18 @@
+.section-buy-header {
+ display: flex;
+ justify-content: space-between;
+ width: 90%;
+ margin: 100px 0 200px auto;
+ gap: 100px;
+
+ .column {
+  gap: 30px;
+  width: 40%;
+ }
+
+ img {
+  width: 60%;
+  object-fit: cover;
+  border-radius: 16px 0 0 16px;
+ }
+}

@@ -8,12 +8,21 @@ const AuthController = {
 
     const hash = await bcrypt.hash(password, 10);
 
+    function getRandomElement(arr) {
+      const index = Math.floor(Math.random() * arr.length);
+      return arr[index];
+    }
+
     try {
       const user = await User.create({
         firstName,
         lastName,
         email,
         password: hash,
+        avatar: getRandomElement([
+          "https://cdn.discordapp.com/attachments/1081252530975150160/1081666750627717160/bear.png",
+          "https://cdn.discordapp.com/attachments/1081252530975150160/1081666750850019369/cat.png",
+        ]),
       });
       res.send(user);
     } catch (error) {
@@ -39,7 +48,7 @@ const AuthController = {
       {
         _id: user._id,
         email: user.email,
-        password: user.password,
+        avatar: user.avatar,
         firstName: user.firstName,
         lastName: user.lastName,
       },
