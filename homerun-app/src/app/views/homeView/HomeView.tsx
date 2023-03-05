@@ -4,6 +4,8 @@ import { PropertiesContext } from "../../contexts/PropertiesContext";
 import { useContext, useEffect } from "react";
 import MostViewedProperties from "../../components/Properties/MostViewedProperties/MostViewedProperties";
 import { Link } from "react-router-dom";
+import headerImage from '../../assets/images/header-bg.jpg';
+import ViewMore from '../../assets/icons/viewmore.png'
 
 const HomeView = () => {
   const { properties, categories } = useContext(PropertiesContext);
@@ -26,7 +28,7 @@ const HomeView = () => {
           </h1>
           <Finder />
           <img
-            src="./assets/images/header-bg.jpg"
+            src={headerImage}
             alt="Propriété"
             className="header-img"
           />
@@ -52,7 +54,7 @@ const HomeView = () => {
         <div className="row spaceBtwn">
           <h2>Most viewed property</h2>
           <Link to="" className="row alignCenter">
-            View More <img src="./assets/icons/viewmore.png" alt="viewmore" />
+            View More <img src={ViewMore}  alt="viewmore" />
           </Link>
         </div>
 

@@ -1,6 +1,7 @@
 import Categories from "../../components/Categories/Categories";
 import LastProperties from "../../components/Properties/LastProperties/LastProperties";
 import PropertyFilter from "../../components/Properties/PropertyFilter/PropertyFilter";
+import headerImg from '../../assets/images/buy-bg.jpg'
 
 const BuyView = () => {
   return (
@@ -30,7 +31,7 @@ const BuyView = () => {
           </a>
         </div>
 
-        <img src="./assets/images/buy-bg" alt="buy header background" />
+        <img src={headerImg} alt="buy header background" />
       </section>
 
       <section className="section-categories">

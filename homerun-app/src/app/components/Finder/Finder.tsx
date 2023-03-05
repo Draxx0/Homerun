@@ -1,5 +1,6 @@
 import { useState } from "react";
-
+import Search from '../../assets/icons/search.svg'
+import Chevron from '../../assets/icons/chevron-down.png'
 const Finder = () => {
   const [type, setType] = useState<string>("Buy");
   return (
@@ -39,7 +40,7 @@ const Finder = () => {
               <option value="Nevada-US">Nevada, US</option>
               <option value="Georgia-US">Georgia, US</option>
             </select>
-            <img src="./assets/icons/chevron-down.png" alt="" />
+            <img src={Chevron} alt="" />
           </div>
         </div>
 
@@ -54,7 +55,7 @@ const Finder = () => {
               <option value="office">Office</option>
               <option value="modern villa">Modern Villa</option>
             </select>
-            <img src="./assets/icons/chevron-down.png" alt="" />
+            <img src={Chevron} alt="" />
           </div>
         </div>
 
@@ -73,14 +74,14 @@ const Finder = () => {
                 <option value="1000-1500">$1,000-1,500</option>
               </select>
             )}
-            <img src="./assets/icons/chevron-down.png" alt="" />
+            <img src={Chevron} alt="" />
           </div>
         </div>
 
         <div className="finder__bottom__informations">
           <span className="finder__bottom__informations__search">
             <img
-              src="./assets/icons/search.svg"
+              src={Search}
               alt="recherche icone"
               className="finder__bottom__informations__search__icon"
             />

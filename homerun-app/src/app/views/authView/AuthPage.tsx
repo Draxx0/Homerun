@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import Signin from "../../components/Auth/Signin/Signin";
 import Signup from "../../components/Auth/Signup/Signup";
+import vector from "../../assets/images/vector.png";
 
 const AuthPage = () => {
   const location = useLocation();
@@ -16,7 +17,7 @@ const AuthPage = () => {
           {location.pathname === "/auth/signin" ? <Signin /> : <Signup />}
         </div>
 
-        <img src="./assets/images/vector.png" alt="auth background" />
+        <img src={vector} alt="auth background" />
       </div>
     </div>
   );

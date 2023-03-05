@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
+import footerImage from '../../assets/images/footer-img.png';
+import Logo from "../../assets/logos/white-logo.svg";
 
 const Footer = () => {
   return (
     <footer>
       <div className="pre-footer">
-        <img src="./assets/images/footer-img.png" alt="footer illustration" />
+        <img src={footerImage} alt="footer img"/>
         <h4>
           Start buying or listing
           <br /> properties with <span className="colored">Homerun</span>{" "}
@@ -13,7 +15,7 @@ const Footer = () => {
       <div className="footer-wrapper">
         <div className="column">
           <div className="row alignCenter">
-            <img src="./assets/logos/white-logo.svg" alt="white logo" />
+            <img src={Logo} alt="white logo" />
             <span>Homerun</span>
           </div>
 

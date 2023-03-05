@@ -1,6 +1,11 @@
 nav {
  position: relative;
  z-index: 2;
+ position: fixed;
+ width: 100%;
+ background-color: white;
+ z-index: 100;
+ transition: .3s ease-in-out all;
 
  .nav-wrapper {
   display: flex;
@@ -59,4 +64,14 @@ nav {
    }
   }
  }
+}
+
+.nav-active {
+ box-shadow:
+  0.8px 0.7px 4px rgba(0, 0, 0, 0.014),
+  1.9px 1.8px 9.5px rgba(0, 0, 0, 0.02),
+  3.5px 3.4px 17.9px rgba(0, 0, 0, 0.025),
+  6.3px 6px 31.9px rgba(0, 0, 0, 0.03),
+  11.7px 11.3px 59.7px rgba(0, 0, 0, 0.036),
+  28px 27px 143px rgba(0, 0, 0, 0.05);
 }

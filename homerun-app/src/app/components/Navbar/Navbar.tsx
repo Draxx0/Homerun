@@ -1,18 +1,21 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
+import Logo from "../../assets/logos/Logo.svg";
 
 const Navbar = () => {
   const { user, Signout } = useContext(UserContext);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+
+  window.onscroll = () => {
+    setIsScrolled(window.pageYOffset === 0 ? false : true);
+  };
+
   return (
-    <nav>
+    <nav className={isScrolled ? "nav-active" : ""}>
       <div className="nav-wrapper">
         <div className="logo-container">
-          <img
-            src="./assets/logos/Logo.svg"
-            alt="Logo Homerun"
-            className="logo-container__logo"
-          />
+          <img src={Logo} alt="Logo Homerun" className="logo-container__logo" />
           <span className="logo-container__name">Homerun</span>
         </div>
 
