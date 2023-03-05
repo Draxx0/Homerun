@@ -48,6 +48,18 @@ const propertyModel = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+  deletedAt: {
+    type: Date,
+    default: null,
+  },
+  updatedAt: {
+    type: Date,
+    default: null,
+  },
 });
 
 module.exports = mongoose.model("Property", propertyModel);

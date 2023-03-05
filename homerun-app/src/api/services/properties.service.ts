@@ -29,12 +29,18 @@ const getMostViewed = async () => {
   return response.data;
 };
 
+const getLatest = async () => {
+  const response = await axios.get(`${process.env.REACT_APP_API_URL}/properties/latest`);
+  return response.data;
+};
+
 const PropertyServices = {
   getAll,
   getCategories,
   create,
   deleteOne,
   getMostViewed,
+  getLatest,
 };
 
 export default PropertyServices;

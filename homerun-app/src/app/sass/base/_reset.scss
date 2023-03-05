@@ -8,6 +8,10 @@
  box-sizing: border-box;
 }
 
+body {
+ overflow-x: hidden;
+}
+
 body,
 h1,
 h2,
@@ -46,6 +50,7 @@ input {
 
 input[type="submit"] {
  cursor: pointer;
+ width: fit-content;
 }
 
 input:not(input[type="submit"]) {
@@ -64,6 +69,105 @@ input:focus::placeholder {
  color: transparent;
 }
 
+input[type=range] {
+ height: 39px;
+ -webkit-appearance: none;
+ margin: 10px 0;
+ width: 100%;
+ background-color: transparent !important;
+}
+
+input[type=range]:focus {
+ outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+ width: 100%;
+ height: 15px;
+ cursor: pointer;
+ box-shadow: 0px 0px 0px #000000;
+ background: #ED5544;
+ border-radius: 30px;
+ border: 0px solid #000000;
+}
+
+input[type=range]::-webkit-slider-thumb {
+ box-shadow: 0px 0px 0px #ED5544;
+ border: 2px solid #ED5544;
+ height: 31px;
+ width: 32px;
+ border-radius: 50px;
+ background: #FFFFFF;
+ cursor: pointer;
+ -webkit-appearance: none;
+ margin-top: -9px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+ background: #ED5544;
+}
+
+input[type=range]::-moz-range-track {
+ width: 100%;
+ height: 15px;
+ cursor: pointer;
+ box-shadow: 0px 0px 0px #000000;
+ background: #ED5544;
+ border-radius: 30px;
+ border: 0px solid #000000;
+}
+
+input[type=range]::-moz-range-thumb {
+ box-shadow: 0px 0px 0px #ED5544;
+ border: 2px solid #ED5544;
+ height: 31px;
+ width: 32px;
+ border-radius: 50px;
+ background: #FFFFFF;
+ cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+ width: 100%;
+ height: 15px;
+ cursor: pointer;
+ background: transparent;
+ border-color: transparent;
+ color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+ background: #ED5544;
+ border: 0px solid #000000;
+ border-radius: 60px;
+ box-shadow: 0px 0px 0px #000000;
+}
+
+input[type=range]::-ms-fill-upper {
+ background: #ED5544;
+ border: 0px solid #000000;
+ border-radius: 60px;
+ box-shadow: 0px 0px 0px #000000;
+}
+
+input[type=range]::-ms-thumb {
+ margin-top: 1px;
+ box-shadow: 0px 0px 0px #ED5544;
+ border: 2px solid #ED5544;
+ height: 31px;
+ width: 32px;
+ border-radius: 50px;
+ background: #FFFFFF;
+ cursor: pointer;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+ background: #ED5544;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+ background: #ED5544;
+}
 
 a {
  text-decoration: none;
@@ -140,6 +244,22 @@ a:hover {
  height: 4px;
  background-color: $color-secondary;
  border-radius: 4px;
+}
+
+.section-categories,
+.section-most-viewed,
+.section-last-properties {
+ width: 90%;
+ margin: 50px auto auto auto;
+
+ .row {
+  gap: 10px
+ }
+
+ h2 {
+  font-size: 44px;
+  margin-top: 20px
+ }
 }
 
 ::-webkit-scrollbar {

@@ -1,0 +1,109 @@
+.filter-wrapper {
+ position: relative;
+ display: flex;
+ align-items: center;
+
+ span {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: $color-secondary;
+ }
+
+ .filter-bar-1,
+ .filter-bar-2,
+ .filter-bar-3 {
+  background-color: $color-secondary;
+  height: 3.5px;
+  border-radius: 50px;
+  transition: .3s ease-in-out all;
+ }
+
+ .filter-active {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  margin-left: 30px;
+
+  .filter-bar-1 {
+   width: 30px;
+   transform: rotate(45deg);
+   position: relative;
+   top: 15px;
+  }
+
+  .filter-bar-2 {
+   opacity: 0;
+  }
+
+  .filter-bar-3 {
+   width: 30px;
+   transform: rotate(-45deg);
+  }
+ }
+
+ .filter {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  margin-left: 30px;
+  transition: .3s ease-in-out all;
+
+  &:hover {
+
+   .filter-bar-2,
+   .filter-bar-3 {
+    width: 30px;
+   }
+  }
+
+  .filter-bar-1 {
+   position: relative;
+   top: 0;
+   transform: none;
+   width: 30px;
+  }
+
+  .filter-bar-2 {
+   width: 20px;
+  }
+
+  .filter-bar-3 {
+   width: 10px;
+  }
+ }
+
+ .filter-container {
+  position: absolute;
+  right: -400px;
+  top: -10px;
+  height: fit-content;
+  width: 300%;
+  background-color: white;
+  border: 3px solid $color-secondary;
+  border-radius: 10px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  opacity: 0;
+  transition: .3s ease-in-out all;
+
+  .column {
+   gap: 10px;
+  }
+ }
+
+ .filter-container-active {
+  right: -10px;
+  opacity: 1;
+  transition: .3s ease-in-out all;
+ }
+}

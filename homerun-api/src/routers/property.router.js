@@ -12,6 +12,7 @@ router.post(`${endPoint}`, TokenMiddleware, PropertyController.createProperty);
 router.get(`${endPoint}/user/:id`, TokenMiddleware, PropertyController.getAllPropertiesByUser);
 router.delete(`${endPoint}/user/:id`, TokenMiddleware, PropertyController.deleteProperty);
 router.get(`${endPoint}/most-viewed`, PropertyController.getMostViewedProperties);
+router.get(`${endPoint}/latest`, PropertyController.getLatestProperties);
 
 
 //? Property Categories
