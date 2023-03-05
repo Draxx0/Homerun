@@ -1,3 +1,5 @@
+import { RefObject } from "react";
+
 export interface IProperty {
   name: string;
   location: string;
@@ -20,4 +22,12 @@ export interface IPropertyCategory {
 
 export interface IPropertyCategories {
   categories: IPropertyCategory[];
+}
+
+export interface IPaginationProps {
+  totalItems: number;
+  itemsPerPage: number;
+  currentPage: number;
+  onPageChange: (pageNumber: number) => void;
+  reference: RefObject<HTMLDivElement>;
 }

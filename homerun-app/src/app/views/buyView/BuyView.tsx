@@ -1,6 +1,6 @@
 import Categories from "../../components/Categories/Categories";
-import LastProperties from "../../components/LastProperties/LastProperties";
-import PropertyFilter from "../../components/PropertyFilter/PropertyFilter";
+import LastProperties from "../../components/Properties/LastProperties/LastProperties";
+import PropertyFilter from "../../components/Properties/PropertyFilter/PropertyFilter";
 
 const BuyView = () => {
   return (

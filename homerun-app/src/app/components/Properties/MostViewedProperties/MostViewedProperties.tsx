@@ -1,7 +1,7 @@
-import { IProperty } from "../../../api/utils/utils";
+import { IProperty } from "../../../../api/utils/utils";
 import { useContext, useEffect, useState } from "react";
-import { PropertiesContext } from "../../contexts/PropertiesContext";
-import PropertyServices from "../../../api/services/properties.service";
+import { PropertiesContext } from "../../../contexts/PropertiesContext";
+import PropertyServices from "../../../../api/services/properties.service";
 import { Link } from "react-router-dom";
 
 const MostViewedProperties = () => {

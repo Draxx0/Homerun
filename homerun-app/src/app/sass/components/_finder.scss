@@ -23,15 +23,17 @@
   .type-active {
    position: relative;
 
+
    &::before {
     content: '';
     position: absolute;
-    width: 140%;
+    animation: widthGrow 0.3s ease-in-out forwards;
     height: 3px;
     background-color: $color-secondary;
     bottom: -5px;
     left: 50%;
     transform: translateX(-50%);
+    border-radius: 50px;
    }
   }
  }
@@ -102,5 +104,15 @@
     }
    }
   }
+ }
+}
+
+@keyframes widthGrow {
+ from {
+  width: 0;
+ }
+
+ to {
+  width: 150%;
  }
 }

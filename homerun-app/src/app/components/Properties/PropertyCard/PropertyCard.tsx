@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { IProperty } from "../../../api/utils/utils";
+import { IProperty } from "../../../../api/utils/utils";
 
 const PropertyCard = ({ property }: { property: IProperty }) => {
   return (

@@ -2,7 +2,7 @@ import Categories from "../../components/Categories/Categories";
 import Finder from "../../components/Finder/Finder";
 import { PropertiesContext } from "../../contexts/PropertiesContext";
 import { useContext, useEffect } from "react";
-import MostViewedProperties from "../../components/MostViewedProperties/MostViewedProperties";
+import MostViewedProperties from "../../components/Properties/MostViewedProperties/MostViewedProperties";
 import { Link } from "react-router-dom";
 
 const HomeView = () => {
