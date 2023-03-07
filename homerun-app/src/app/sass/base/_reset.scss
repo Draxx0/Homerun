@@ -196,10 +196,19 @@ a:hover {
  position: absolute;
  left: 0;
  bottom: -5px;
- width: 40%;
+ width: 80%;
  height: 4px;
  background-color: $color-secondary;
  border-radius: 50px;
+}
+
+.error {
+ color: red;
+ font-weight: bold;
+}
+
+.underline {
+ text-decoration: underline;
 }
 
 .row {

@@ -7,6 +7,16 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  input {
+   position: relative;
+   border: solid 2px transparent;
+   transition: .3s ease-in-out all;
+
+   &:focus {
+    border: solid 2px $color-secondary;
+   }
+  }
  }
 }
 

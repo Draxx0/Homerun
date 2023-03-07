@@ -14,8 +14,8 @@ const MainLayout: FC<IProps> = ({ children }) => {
       </header>
       <main>
         <>{children}</>
-    </main>
-       <Footer />
+      </main>
+      <Footer />
     </>
   );
 };

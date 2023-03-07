@@ -1,11 +1,12 @@
 import { useContext, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
 import Logo from "../../assets/logos/Logo.svg";
 
 const Navbar = () => {
   const { user, Signout } = useContext(UserContext);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
@@ -14,7 +15,7 @@ const Navbar = () => {
   return (
     <nav className={isScrolled ? "nav-active" : ""}>
       <div className="nav-wrapper">
-        <div className="logo-container">
+        <div className="logo-container" onClick={() => navigate("/")}>
           <img src={Logo} alt="Logo Homerun" className="logo-container__logo" />
           <span className="logo-container__name">Homerun</span>
         </div>
@@ -25,11 +26,7 @@ const Navbar = () => {
           </li>
 
           <li className="links-list__item">
-            <NavLink to="/buy">Buy</NavLink>
-          </li>
-
-          <li className="links-list__item">
-            <NavLink to="/rent">Rent</NavLink>
+            <NavLink to="/properties">Properties</NavLink>
           </li>
 
           <li className="links-list__item">

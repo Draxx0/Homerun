@@ -53,7 +53,7 @@ const HomeView = () => {
 
         <div className="row spaceBtwn">
           <h2>Most viewed property</h2>
-          <Link to="" className="row alignCenter">
+          <Link to="/properties" className="row alignCenter">
             View More <img src={ViewMore}  alt="viewmore" />
           </Link>
         </div>

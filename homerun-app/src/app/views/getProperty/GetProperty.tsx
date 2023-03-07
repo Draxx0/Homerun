@@ -1,15 +1,14 @@
-import Categories from "../../components/Categories/Categories";
 import LastProperties from "../../components/Properties/LastProperties/LastProperties";
 import PropertyFilter from "../../components/Properties/PropertyFilter/PropertyFilter";
-import headerImg from '../../assets/images/buy-bg.jpg'
+import headerImg from "../../assets/images/buy-bg.jpg";
 
-const BuyView = () => {
+const GetProperty = () => {
   return (
     <>
       <section className="section-buy-header">
         <div className="column">
           <h1>
-            A desire to <br /> buy ?
+            A desire to <br /> buy or rent property ?
           </h1>
 
           <p>
@@ -34,17 +33,7 @@ const BuyView = () => {
         <img src={headerImg} alt="buy header background" />
       </section>
 
-      <section className="section-categories">
-        <div className="row alignCenter">
-          <div className="redbar"></div>
-          <h3>Categories</h3>
-        </div>
-        <h2>Explore categories</h2>
-
-        <Categories />
-      </section>
-
-      <section className="section-last-properties">
+      <section className="section-last-properties" id="section-last-properties">
         <div className="row alignCenter">
           <div className="redbar"></div>
           <h3>Search</h3>
@@ -61,4 +50,4 @@ const BuyView = () => {
   );
 };
 
-export default BuyView;
+export default GetProperty;

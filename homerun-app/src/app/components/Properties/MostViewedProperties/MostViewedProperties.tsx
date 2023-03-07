@@ -3,6 +3,8 @@ import { useContext, useEffect, useState } from "react";
 import { PropertiesContext } from "../../../contexts/PropertiesContext";
 import PropertyServices from "../../../../api/services/properties.service";
 import { Link } from "react-router-dom";
+import Location from '../../../assets/icons/location.png'
+import Home from '../../../assets/icons/menu-home.png'
 
 const MostViewedProperties = () => {
   const { properties } = useContext(PropertiesContext);
@@ -35,12 +37,12 @@ const MostViewedProperties = () => {
               <p className="property-name">{property.name}</p>
               <div className="row alignCenter">
                 <div className="row alignCenter">
-                  <img src="./assets/icons/location.png" alt="location" />
+                  <img src={Location} alt="location" />
                   <p>{property.location}</p>
                 </div>
 
                 <div className="row alignCenter">
-                  <img src="./assets/icons/menu-home.png" alt="location" />
+                  <img src={Home} alt="location" />
                   <p>{property.category}</p>
                 </div>
               </div>

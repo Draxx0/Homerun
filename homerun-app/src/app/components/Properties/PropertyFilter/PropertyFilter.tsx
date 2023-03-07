@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 type Step = {
   label: string;
   start: number;
@@ -8,16 +9,26 @@ type Step = {
 const PropertyFilter = () => {
   const [showFilter, setShowFilter] = useState(false);
   const [selectedStep, setSelectedStep] = useState<Step | null>(null);
+  const location = useLocation();
 
   const handleSliderChange = (event: any) => {
     const value = parseInt(event.target.value);
-    const steps: Array<Step> = [
-      { label: "50 000$ - 150 000$", start: 50000, end: 150000 },
-      { label: "150 000$ - 300 000$", start: 150000, end: 300000 },
-      { label: "300 000$ - 500 000$", start: 300000, end: 500000 },
-      { label: "500 000$ - 750 000$", start: 500000, end: 750000 },
-      { label: "750 000$ - 1 000 000$", start: 750000, end: 1000000 },
-    ];
+    const steps: Array<Step> =
+      location.pathname === "/buy"
+        ? [
+            { label: "50 000$ - 150 000$", start: 50000, end: 150000 },
+            { label: "150 000$ - 300 000$", start: 150000, end: 300000 },
+            { label: "300 000$ - 500 000$", start: 300000, end: 500000 },
+            { label: "500 000$ - 750 000$", start: 500000, end: 750000 },
+            { label: "750 000$ - 1 000 000$", start: 750000, end: 1000000 },
+          ]
+        : [
+            { label: "500$ - 1 500$ / month", start: 500, end: 1500 },
+            { label: "1 500$ - 3 000$ / month", start: 1500, end: 3000 },
+            { label: "3 000$ - 5 000$ / month", start: 3000, end: 5000 },
+            { label: "5 000$ - 7 500$ / month", start: 5000, end: 7500 },
+            { label: "7 500$ - 10 000$ / month", start: 7500, end: 10000 },
+          ];
     const selected = steps.find(
       (step) => value >= step.start && value < step.end
     );
@@ -83,15 +94,15 @@ const PropertyFilter = () => {
             type="range"
             name="price-range"
             id="price-range"
-            min="50000"
-            max="1000000"
+            min={location.pathname === "/buy" ? 50000 : 500}
+            max={location.pathname === "/buy" ? 1000000 : 10000}
             step="1"
             onChange={handleSliderChange}
           />
           {selectedStep && <div>{selectedStep.label}</div>}
         </div>
 
-        <div className="row spaceBtwn">
+        <div className="row spaceBtwn buttons-filter">
           <button className="button">Reset</button>
           <button className="button">Apply</button>
         </div>

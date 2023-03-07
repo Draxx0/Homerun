@@ -5,7 +5,9 @@ import {
   Dispatch,
   SetStateAction,
   ReactNode,
+  useEffect,
 } from "react";
+import TokenService from "../../api/services/token.service";
 import { IUser } from "../../api/utils/user.utils";
 
 type UserType = {
@@ -32,6 +34,13 @@ const UserContextProvider: FC<IProps> = ({ children }) => {
     setUser(null);
     window.location.href = "/";
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("accessToken")) {
+      const userTokenInfos: any = TokenService.getUserFromLocalToken();
+      setUser(userTokenInfos);
+    }
+  }, []);
   return (
     <UserContext.Provider
       value={{

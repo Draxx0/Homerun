@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { IProperty } from "../../../../api/utils/utils";
+import Location from '../../../assets/icons/location.png'
+import Home from '../../../assets/icons/menu-home.png'
 
 const PropertyCard = ({ property }: { property: IProperty }) => {
   return (
@@ -16,12 +18,12 @@ const PropertyCard = ({ property }: { property: IProperty }) => {
         <p className="property-name">{property.name}</p>
         <div className="row alignCenter">
           <div className="row alignCenter">
-            <img src="./assets/icons/location.png" alt="location" />
+            <img src={Location} alt="location" />
             <p>{property.location}</p>
           </div>
 
           <div className="row alignCenter">
-            <img src="./assets/icons/menu-home.png" alt="location" />
+            <img src={Home} alt="location" />
             <p>{property.category}</p>
           </div>
         </div>

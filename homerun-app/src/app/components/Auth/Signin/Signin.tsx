@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthServices from "../../../../api/services/auth.service";
 import TokenService from "../../../../api/services/token.service";
 import { IUserLogin } from "../../../../api/utils/user.utils";
@@ -8,6 +8,7 @@ import { UserContext } from "../../../contexts/UserContext";
 const Signin = () => {
   const { setUser } = useContext(UserContext);
   const navigate = useNavigate();
+  const [error, setError] = useState<boolean | null>(null);
   const [credentials, setCredentials] = useState<IUserLogin>({
     email: "",
     password: "",
@@ -38,6 +39,10 @@ const Signin = () => {
       setUser(user);
       navigate("/");
     } catch (error) {
+      setError(true);
+      setTimeout(() => {
+        setError(false);
+      }, 3000);
       console.error(error);
     }
   };
@@ -50,6 +55,7 @@ const Signin = () => {
           name="email"
           id="email-log"
           onChange={handleChangeCredentials}
+          required
         />
       </div>
 
@@ -60,10 +66,16 @@ const Signin = () => {
           name="password"
           id="password"
           onChange={handleChangeCredentials}
+          required
         />
       </div>
 
+      <Link to="/" className="colored bold underline">
+        Forgot your password ? reset it here
+      </Link>
+
       <input type="submit" value="Log in" className="button" />
+      {error && <p className="error">Invalid password or email</p>}
     </form>
   );
 };

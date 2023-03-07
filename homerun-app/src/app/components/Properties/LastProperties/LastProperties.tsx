@@ -4,6 +4,7 @@ import PropertyServices from "../../../../api/services/properties.service";
 import { PropertiesContext } from "../../../contexts/PropertiesContext";
 import PropertyCard from "../PropertyCard/PropertyCard";
 import PropertiesPagination from "../PropertiesPagination/PropertiesPagination";
+import { useLocation } from "react-router-dom";
 
 const LastProperties = () => {
   const { properties } = useContext(PropertiesContext);
@@ -24,9 +25,7 @@ const LastProperties = () => {
   useEffect(() => {
     if (properties) {
       PropertyServices.getLatest().then((res) => {
-        setLatestProperties(
-          res.filter((property: IProperty) => property.type === "sale")
-        );
+        setLatestProperties(res);
       });
     }
   }, [properties]);

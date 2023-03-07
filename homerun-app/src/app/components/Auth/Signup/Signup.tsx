@@ -12,7 +12,7 @@ const Signup = () => {
     firstName: "",
     lastName: "",
     email: "",
-   password: "",
+    password: "",
     avatar: "",
     properties: [],
   });
@@ -54,6 +54,7 @@ const Signup = () => {
           name="firstName"
           id="firstName"
           onChange={handleChangeCredentials}
+          required
         />
       </div>
 
@@ -64,6 +65,7 @@ const Signup = () => {
           name="lastName"
           id="lastName"
           onChange={handleChangeCredentials}
+          required
         />
       </div>
 
@@ -74,6 +76,7 @@ const Signup = () => {
           name="email"
           id="email"
           onChange={handleChangeCredentials}
+          required
         />
       </div>
 
@@ -84,6 +87,8 @@ const Signup = () => {
           name="password"
           id="password"
           onChange={handleChangeCredentials}
+          required
+          min={6}
         />
       </div>
 
