@@ -1,10 +1,11 @@
-.categories {
+.search-types {
+ width: 75%;
  display: grid;
- grid-template-columns: repeat(4, 1fr);
+ grid-template-columns: repeat(2, 1fr);
  gap: 30px;
- margin-top: 50px;
+ margin: 50px auto auto auto;
 
- .category {
+ .search-type {
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -27,8 +28,8 @@
   }
 
   &__lenght {
-   font-size: 1rem;
-   color: #b3b3b3;
+   font-size: 1.2rem;
+   color: $color-secondary;
   }
 
   img {
@@ -39,7 +40,7 @@
   }
  }
 
- .category-active {
+ .search-type-active {
   border: solid 2px $color-secondary;
   box-shadow: 0px 6px 40px rgba(57, 120, 179, 0.2);
   transform: translateY(-5px);

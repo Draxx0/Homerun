@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
-import footerImage from '../../assets/images/footer-img.png';
+import footerImage from "../../assets/images/footer-img.png";
 import Logo from "../../assets/logos/white-logo.svg";
 
 const Footer = () => {
   return (
     <footer>
       <div className="pre-footer">
-        <img src={footerImage} alt="footer img"/>
+        <img src={footerImage} alt="footer img" />
         <h4>
-          Start buying or listing
-          <br /> properties with <span className="colored">Homerun</span>{" "}
+          Commencez à acheter ou à inscrire
+          <br /> des propriétés avec <span className="colored">Homerun</span>{" "}
         </h4>
       </div>
       <div className="footer-wrapper">
@@ -26,32 +26,32 @@ const Footer = () => {
         </div>
 
         <div className="column">
-          <span>Company</span>
+          <span>Entreprise</span>
           <ul>
             <li>
-              <Link to="">About Us</Link>
+              <Link to="">A notre sujet</Link>
             </li>
             <li>
               {" "}
-              <Link to="">Terms & Conditions</Link>
+              <Link to="">Conditions générales</Link>
             </li>
             <li>
               {" "}
-              <Link to="">User Guide</Link>
+              <Link to="">Guide d'utilisation</Link>
             </li>
             <li>
               {" "}
-              <Link to="">Become a Business</Link>
+              <Link to="">Devenir une entreprise</Link>
             </li>
             <li>
               {" "}
-              <Link to="">Contact Us</Link>
+              <Link to="">Nous contacter</Link>
             </li>
           </ul>
         </div>
 
         <div className="column">
-          <span>Join our newsletter</span>
+          <span>Rejoindre notre newsletter</span>
 
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -65,7 +65,7 @@ const Footer = () => {
               id="email-newsletter"
               placeholder="votre email ici..."
             />
-            <button>Subscribe</button>
+            <button>S'inscrire</button>
           </div>
         </div>
       </div>

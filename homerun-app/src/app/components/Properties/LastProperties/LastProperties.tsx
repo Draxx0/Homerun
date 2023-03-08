@@ -4,10 +4,9 @@ import PropertyServices from "../../../../api/services/properties.service";
 import { PropertiesContext } from "../../../contexts/PropertiesContext";
 import PropertyCard from "../PropertyCard/PropertyCard";
 import PropertiesPagination from "../PropertiesPagination/PropertiesPagination";
-import { useLocation } from "react-router-dom";
 
 const LastProperties = () => {
-  const { properties } = useContext(PropertiesContext);
+  const { properties, selectedType } = useContext(PropertiesContext);
   const sectionRef = useRef(null);
   const [latestProperties, setLatestProperties] = useState<IProperty[] | null>(
     null
@@ -25,10 +24,16 @@ const LastProperties = () => {
   useEffect(() => {
     if (properties) {
       PropertyServices.getLatest().then((res) => {
-        setLatestProperties(res);
+        !selectedType
+          ? setLatestProperties(res)
+          : setLatestProperties(
+              res.filter(
+                (property: IProperty) => property.type === selectedType
+              )
+            );
       });
     }
-  }, [properties]);
+  }, [properties, selectedType]);
 
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);

@@ -49,7 +49,7 @@ const Signin = () => {
   return (
     <form className="auth-form" onSubmit={handleLogin}>
       <div className="auth-form__group">
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">Addresse email</label>
         <input
           type="email"
           name="email"
@@ -60,7 +60,7 @@ const Signin = () => {
       </div>
 
       <div className="auth-form__group">
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password">Mot de passe</label>
         <input
           type="password"
           name="password"
@@ -70,12 +70,25 @@ const Signin = () => {
         />
       </div>
 
-      <Link to="/" className="colored bold underline">
-        Forgot your password ? reset it here
-      </Link>
+      <p className="bold">
+        Mot de passe oublié ?{" "}
+        <Link to="/auth/forgot-password" className="colored bold underline">
+          Cliquer ici
+        </Link>
+      </p>
+      <p className="bold">
+        Vous ne posséder pas de compte ?{" "}
+        <Link to="/auth/signup" className="colored bold underline">
+          Crée votre compte
+        </Link>
+      </p>
 
       <input type="submit" value="Log in" className="button" />
-      {error && <p className="error">Invalid password or email</p>}
+      {error && (
+        <p className="error">
+          Mauvais mot de passe, ou mauvaise addresse email
+        </p>
+      )}
     </form>
   );
 };

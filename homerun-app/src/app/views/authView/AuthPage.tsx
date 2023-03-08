@@ -10,7 +10,7 @@ const AuthPage = () => {
       <div className="row alignCenter">
         <div className="column">
           <h1>
-            {location.pathname === "/auth/signin" ? "Sign In" : "Sign Up"} to{" "}
+            {location.pathname === "/auth/signin" ? "Se connecter" : "S'inscrire"} à{" "}
             <span className="colored">Homerun</span>
           </h1>
 

@@ -1,7 +1,23 @@
 @mixin button {
- padding: 15px 30px;
+ padding: 10px 30px;
  color: $color-secondary;
  background-color: #FFDBD7;
+ border-radius: 32px;
+ transition: all 0.3s ease-in-out;
+ font-weight: bold;
+ border: 2px solid transparent;
+
+ &:hover {
+  background-color: $color-secondary;
+  color: #FFDBD7;
+ }
+}
+
+@mixin button-border {
+ padding: 10px 30px;
+ color: $color-secondary;
+ background-color: transparent;
+ border: 2px solid $color-secondary;
  border-radius: 32px;
  transition: all 0.3s ease-in-out;
  font-weight: bold;
@@ -9,5 +25,21 @@
  &:hover {
   background-color: $color-secondary;
   color: #FFDBD7;
+ }
+}
+
+@mixin black-button {
+ padding: 10px 30px;
+ color: $color-primary;
+ background-color: transparent;
+ border: 2px solid $color-primary;
+ border-radius: 32px;
+ transition: all 0.3s ease-in-out;
+ font-weight: bold;
+ font-size: 15px;
+
+ &:hover {
+  background-color: $color-primary;
+  color: white;
  }
 }

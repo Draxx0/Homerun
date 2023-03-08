@@ -1,3 +1,11 @@
-.button{
+.button {
  @include button;
+}
+
+.button-border {
+ @include button-border;
+}
+
+.black-button {
+ @include black-button;
 }

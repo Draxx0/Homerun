@@ -4,11 +4,11 @@ import { PropertiesContext } from "../../contexts/PropertiesContext";
 import { useContext, useEffect } from "react";
 import MostViewedProperties from "../../components/Properties/MostViewedProperties/MostViewedProperties";
 import { Link } from "react-router-dom";
-import headerImage from '../../assets/images/header-bg.jpg';
-import ViewMore from '../../assets/icons/viewmore.png'
+import headerImage from "../../assets/images/header-bg.jpg";
+import ViewMore from "../../assets/icons/viewmore.png";
 
 const HomeView = () => {
-  const { properties, categories } = useContext(PropertiesContext);
+  const { properties, categories, selectedCategory } = useContext(PropertiesContext);
 
   useEffect(() => {
     if (properties) console.log("properties", properties);
@@ -23,24 +23,19 @@ const HomeView = () => {
       <section className="section-finder">
         <div className="finder-container">
           <h1>
-            Find a place
-            <br /> you'll love
+            Trouver la propriété qui vous convient !
           </h1>
           <Finder />
-          <img
-            src={headerImage}
-            alt="Propriété"
-            className="header-img"
-          />
+          <img src={headerImage} alt="Propriété" className="header-img" />
         </div>
       </section>
 
       <section className="section-categories">
         <div className="row alignCenter">
           <div className="redbar"></div>
-          <h3>Categories</h3>
+          <h3>Catégories</h3>
         </div>
-        <h2>Explore categories</h2>
+        <h2>Que recherchez-vous ?</h2>
 
         <Categories />
       </section>
@@ -48,13 +43,13 @@ const HomeView = () => {
       <section className="section-most-viewed">
         <div className="row alignCenter">
           <div className="redbar"></div>
-          <h3>Popular</h3>
+          <h3>Populaire</h3>
         </div>
 
         <div className="row spaceBtwn">
-          <h2>Most viewed property</h2>
+          <h2>Les {selectedCategory ? selectedCategory : "propriétés"} les plus consultés</h2>
           <Link to="/properties" className="row alignCenter">
-            View More <img src={ViewMore}  alt="viewmore" />
+            Voir plus <img src={ViewMore} alt="viewmore" />
           </Link>
         </div>
 

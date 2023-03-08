@@ -15,13 +15,21 @@ type PropertyType = {
   setProperties: Dispatch<SetStateAction<IProperty | null>>;
   categories: IPropertyCategories | null;
   setCategories: Dispatch<SetStateAction<IPropertyCategories | null>>;
+  selectedCategory: string;
+  setSelectedCategory: Dispatch<SetStateAction<string>>;
+  selectedType: string;
+  setSelectedType: Dispatch<SetStateAction<string>>;
 };
 
 const PropertiesContext = createContext<PropertyType>({
   properties: null,
   setProperties: () => {},
   categories: null,
-  setCategories: () => {},
+  setCategories: () => { },
+  selectedCategory: "",
+  setSelectedCategory: () => { },
+  selectedType: "",
+  setSelectedType: () => { },
 });
 
 type IProps = {
@@ -33,6 +41,8 @@ const PropertiesContextProvider: FC<IProps> = ({ children }) => {
   const [categories, setCategories] = useState<IPropertyCategories | null>(
     null
   );
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [selectedType, setSelectedType] = useState<string>("");
 
   const getProperties = async () => {
     try {
@@ -69,6 +79,10 @@ const PropertiesContextProvider: FC<IProps> = ({ children }) => {
         setProperties,
         categories,
         setCategories,
+        selectedCategory,
+        setSelectedCategory,
+        selectedType,
+        setSelectedType,
       }}
     >
       {children}

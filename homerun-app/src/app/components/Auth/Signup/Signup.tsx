@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthServices from "../../../../api/services/auth.service";
 import TokenService from "../../../../api/services/token.service";
 import { IUser } from "../../../../api/utils/user.utils";
@@ -48,7 +48,7 @@ const Signup = () => {
   return (
     <form className="auth-form" onSubmit={handleCreateUser}>
       <div className="auth-form__group">
-        <label htmlFor="firstName">First name</label>
+        <label htmlFor="firstName">Prénom</label>
         <input
           type="text"
           name="firstName"
@@ -59,7 +59,7 @@ const Signup = () => {
       </div>
 
       <div className="auth-form__group">
-        <label htmlFor="lastName">Last name</label>
+        <label htmlFor="lastName">Nom</label>
         <input
           type="text"
           name="lastName"
@@ -70,7 +70,7 @@ const Signup = () => {
       </div>
 
       <div className="auth-form__group">
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">Addresse email</label>
         <input
           type="email"
           name="email"
@@ -81,7 +81,7 @@ const Signup = () => {
       </div>
 
       <div className="auth-form__group">
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password">Mot de passe</label>
         <input
           type="password"
           name="password"
@@ -91,6 +91,13 @@ const Signup = () => {
           min={6}
         />
       </div>
+
+      <p className="bold">
+        Vous posséder déjà un compte ?{" "}
+        <Link to="/auth/signin" className="colored bold underline">
+          Connecter vous
+        </Link>
+      </p>
 
       <input type="submit" value="Sign Up" className="button" />
     </form>

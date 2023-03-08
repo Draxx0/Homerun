@@ -22,23 +22,19 @@ const Navbar = () => {
 
         <ul className="links-list">
           <li className="links-list__item">
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/">Accueil</NavLink>
           </li>
 
           <li className="links-list__item">
-            <NavLink to="/properties">Properties</NavLink>
+            <NavLink to="/properties">Propriétés</NavLink>
           </li>
 
           <li className="links-list__item">
-            <NavLink to="/sell">Sell</NavLink>
+            <NavLink to="/find-agents">Agents</NavLink>
           </li>
 
           <li className="links-list__item">
-            <NavLink to="/find-agents">Find Agents</NavLink>
-          </li>
-
-          <li className="links-list__item">
-            <NavLink to="/news">News</NavLink>
+            <NavLink to="/news">Actualités</NavLink>
           </li>
         </ul>
 
@@ -54,20 +50,23 @@ const Navbar = () => {
                 Bonjour <span className="colored bold">{user.firstName}</span>
               </span>
             </div>
+            <Link to="/" className="black-button">
+              Mettre ma propriété sur <span className="colored bold">Homerun</span>
+            </Link>
             <button className="button" onClick={Signout}>
-              Log out
+              Déconnexion
             </button>
           </div>
         ) : (
           <div className="row gap-2">
             <div className="auth-button">
-              <Link to="/auth/signup" className="button">
-                Register
+              <Link to="" className="black-button">
+                Mettre ma propriété sur <span className="colored bold">Homerun</span>
               </Link>
             </div>
             <div className="auth-button">
               <Link to="/auth/signin" className="button">
-                Login
+                Se connecter
               </Link>
             </div>
           </div>
