@@ -5,17 +5,23 @@ import { IProperty } from "../utils/utils";
 const endPoint = "/properties";
 
 const getAll = async () => {
-  const response = await axios.get(`${process.env.REACT_APP_API_URL}${endPoint}`);
+  const response = await axios.get(
+    `${process.env.REACT_APP_API_URL}${endPoint}`
+  );
   return response.data;
 };
 
 const getOne = async (id: string) => {
-  const response = await axios.get(`${process.env.REACT_APP_API_URL}${endPoint}/get/${id}`);
+  const response = await axios.get(
+    `${process.env.REACT_APP_API_URL}${endPoint}/get/${id}`
+  );
   return response.data;
 };
 
 const getCategories = async () => {
-  const response = await axios.get(`${process.env.REACT_APP_API_URL}${endPoint}/categories`);
+  const response = await axios.get(
+    `${process.env.REACT_APP_API_URL}${endPoint}/categories`
+  );
   return response.data;
 };
 
@@ -30,12 +36,28 @@ const deleteOne = async (id: string) => {
 };
 
 const getMostViewed = async () => {
-  const response = await axios.get(`${process.env.REACT_APP_API_URL}${endPoint}/most-viewed`);
+  const response = await axios.get(
+    `${process.env.REACT_APP_API_URL}${endPoint}/most-viewed`
+  );
   return response.data;
 };
 
 const getLatest = async () => {
-  const response = await axios.get(`${process.env.REACT_APP_API_URL}${endPoint}/latest`);
+  const response = await axios.get(
+    `${process.env.REACT_APP_API_URL}${endPoint}/latest`
+  );
+  return response.data;
+};
+
+const addView = async (id: string) => {
+  await axios.put(`${process.env.REACT_APP_API_URL}${endPoint}/add-view/${id}`);
+  return console.log("view added");
+};
+
+const getComments = async (id: string) => {
+  const response = await axios.get(
+    `${process.env.REACT_APP_API_URL}${endPoint}/comments/${id}`
+  );
   return response.data;
 };
 
@@ -47,6 +69,8 @@ const PropertyServices = {
   deleteOne,
   getMostViewed,
   getLatest,
+  addView,
+  getComments
 };
 
 export default PropertyServices;

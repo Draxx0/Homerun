@@ -3,7 +3,7 @@
  display: grid;
  grid-template-columns: repeat(3, 1fr);
  gap: 24px 32px;
- margin-top: 40px;
+ margin-top: 80px;
 }
 
 @keyframes opacity {
@@ -15,6 +15,24 @@
  to {
   opacity: 1;
   transform: translateY(0);
+ }
+}
+
+.own-property{
+ position: relative;
+ border: solid 3px $color-secondary;
+
+ .own-property-tag {
+  position: absolute;
+  top: -28px;
+  left: 3%;
+  padding: 5px 10px;
+  background-color: $color-secondary;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 5px 5px 0 0;
  }
 }
 
@@ -40,25 +58,6 @@
    object-fit: cover;
    border-radius: 16px 16px 0 0;
    transition: 0.7s transform ease-in-out;
-  }
-
-  .type-tag {
-   position: absolute;
-   left: 5%;
-   top: 5%;
-   padding: 4px 8px;
-   border: 2px solid #FFFFFF;
-   border-radius: 8px;
-  }
-
-  .rent {
-   background-color: #F1E6FF;
-   color: #8C57D0;
-  }
-
-  .sale {
-   background-color: #D9F7FF;
-   color: #29A1C0;
   }
  }
 

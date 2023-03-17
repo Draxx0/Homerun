@@ -207,6 +207,42 @@ a:hover {
  font-weight: bold;
 }
 
+
+.type-tag {
+ position: absolute;
+ left: 5%;
+ top: 5%;
+}
+
+.tags {
+ position: absolute;
+ right: 5%;
+ top: 5%;
+ display: flex;
+ align-items: center;
+ gap: 10px;
+}
+
+.star {
+ width: 24px !important;
+}
+
+.rent {
+ background-color: #F1E6FF;
+ color: #8C57D0;
+ padding: 4px 8px;
+ border: 2px solid #FFFFFF;
+ border-radius: 8px;
+}
+
+.sale {
+ background-color: #D9F7FF;
+ color: #29A1C0;
+ padding: 4px 8px;
+ border: 2px solid #FFFFFF;
+ border-radius: 8px;
+}
+
 .underline {
  text-decoration: underline;
 }
@@ -276,6 +312,21 @@ a:hover {
   width: 50%;
   object-fit: cover;
   border-radius: 16px 0 0 16px;
+ }
+
+ .img-wrapper {
+  position: relative;
+  width: 50%;
+
+  .type-tag {
+   position: absolute;
+   top: 20px;
+   left: 20px;
+  }
+
+  img {
+   width: 100%;
+  }
  }
 
  .location-icon {

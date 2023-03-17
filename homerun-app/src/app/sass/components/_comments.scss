@@ -1,0 +1,42 @@
+.comments {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ grid-gap: 1rem;
+ margin-top: 100px;
+
+ .comment {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 20px;
+  width: 100%;
+  min-height: 250px;
+  padding: 20px 30px;
+  background: #fff;
+  border: 3px solid $color-secondary;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+
+  &__logo{
+   position: absolute;
+   right: -50px;
+   bottom: -50px;
+   transform: rotate(-25deg);
+   opacity: 0.4;
+  }
+
+  &__user-avatar {
+   width: 48px;
+  }
+
+  &__text {
+   max-height: min-content;
+   font-size: 1rem;
+   font-weight: 300;
+   line-height: 1.5;
+   color: $color-primary;
+  }
+ }
+}

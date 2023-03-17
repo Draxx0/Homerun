@@ -40,6 +40,10 @@ const propertyModel = new Schema({
     type: String,
     required: true,
   },
+  stars: {
+    type: Number,
+    default: 0,
+  },
   type: {
     type: String,
     enum: ["rent", "sale"],
@@ -49,6 +53,12 @@ const propertyModel = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
+  comments: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "PropertyComment",
+    },
+  ],
   createdAt: {
     type: Date,
     default: Date.now,

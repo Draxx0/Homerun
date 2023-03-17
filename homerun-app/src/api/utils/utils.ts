@@ -1,4 +1,5 @@
 import { RefObject } from "react";
+import { IUserComment } from "./user.utils";
 
 export interface IProperty {
   name: string;
@@ -11,7 +12,17 @@ export interface IProperty {
   images: string[];
   cover: string;
   type: string;
+  stars: number;
+  comments: IComment[];
   _id: string;
+}
+
+export interface IComment {
+  _id: string;
+  content: string;
+  stars: number;
+  user: IUserComment;
+  property: string;
 }
 
 export interface IPropertyCategory {

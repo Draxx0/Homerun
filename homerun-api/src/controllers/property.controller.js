@@ -1,11 +1,16 @@
 const Property = require("../models/property.model");
 const PropertyCategory = require("../models/propertyCategory.model");
 const User = require("../models/user.model");
+const PropertyComment = require("../models/propertyComment.model");
 
 const PropertyController = {
+  //? Properties ************************************************
+
   getAllProperties: async (req, res) => {
     try {
-      const properties = await Property.find().populate("user");
+      const properties = await Property.find()
+        .populate("user")
+        .populate("comments");
       res.status(200).json(properties);
     } catch (error) {
       res.status(500).json({ message: error.message });
@@ -14,26 +19,10 @@ const PropertyController = {
 
   getOneProperty: async (req, res) => {
     try {
-      const property = await Property.findById(req.params.id).populate("user");
+      const property = await Property.findById(req.params.id)
+        .populate("user")
+        .populate("comments");
       res.status(200).json(property);
-    } catch (error) {
-      res.status(500).json({ message: error.message });
-    }
-  },
-
-  getPropertyCategories: async (req, res) => {
-    try {
-      const propertyCategories = await PropertyCategory.find();
-      res.status(200).json(propertyCategories);
-    } catch (error) {
-      res.status(500).json({ message: error.message });
-    }
-  },
-
-  createCategory: async (req, res) => {
-    try {
-      const propertyCategory = await PropertyCategory.create(req.body);
-      res.status(201).json(propertyCategory);
     } catch (error) {
       res.status(500).json({ message: error.message });
     }
@@ -137,6 +126,86 @@ const PropertyController = {
     }
   },
 
+  addPropertyView: async (req, res) => {
+    try {
+      const property = await Property.findById(req.params.id);
+      property.views += 1;
+      await property.save();
+      res.status(200).json(property);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  },
+
+  //? Categories ************************************************
+
+  getPropertyCategories: async (req, res) => {
+    try {
+      const propertyCategories = await PropertyCategory.find();
+      res.status(200).json(propertyCategories);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  },
+
+  createCategory: async (req, res) => {
+    try {
+      const propertyCategory = await PropertyCategory.create(req.body);
+      res.status(201).json(propertyCategory);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  },
+
+  //? Comments **************************************************
+
+  getPropertyComments: async (req, res) => {
+    try {
+      const propertyComments = await PropertyComment.find({
+        property: req.params.id,
+      }).populate("user");
+      console.log(propertyComments);
+      res.status(200).json(propertyComments);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  },
+
+  createComment: async (req, res) => {
+    try {
+      const property = await Property.findById(req.params.id);
+      const user = await User.findById(req.user._id);
+
+      const comment = await PropertyComment.create({
+        ...req.body,
+        user: user,
+        property: property._id,
+      });
+
+      await comment.save();
+
+      const comments = await PropertyComment.find({
+        property: req.params.id,
+      });
+
+      let stars = 0;
+
+      comments.forEach((comment) => {
+        stars += comment.stars;
+      });
+
+      property.stars = (stars / comments.length).toFixed(2);
+
+      property.comments.push(comment);
+
+      await property.save();
+
+      res.status(201).json(property);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  },
+
   //? Tools ****************************************************
 
   toolsDeleteAllProperties: async (req, res) => {
@@ -152,6 +221,15 @@ const PropertyController = {
     try {
       const propertyCategories = await PropertyCategory.deleteMany();
       res.status(200).json(propertyCategories);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  },
+
+  toolsDeleteAllComments: async (req, res) => {
+    try {
+      const propertyComments = await PropertyComment.deleteMany();
+      res.status(200).json(propertyComments);
     } catch (error) {
       res.status(500).json({ message: error.message });
     }

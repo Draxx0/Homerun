@@ -51,6 +51,7 @@ const AuthController = {
         avatar: user.avatar,
         firstName: user.firstName,
         lastName: user.lastName,
+        properties: user.properties,
       },
       process.env.JWT_SECRET,
       {

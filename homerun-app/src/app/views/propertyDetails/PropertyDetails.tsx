@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 import PropertyServices from "../../../api/services/properties.service";
 import { IProperty } from "../../../api/utils/utils";
 import location from "../../assets/icons/location-xl.png";
-
+import star from "../../assets/icons/star.svg";
+import PropertyComments from "../../components/Properties/PropertyComments/PropertyComments";
 const PropertyDetails = () => {
   const [property, setProperty] = useState<IProperty | null>(null);
   const { id } = useParams<{ id: string }>() as { id: string };
@@ -13,6 +14,7 @@ const PropertyDetails = () => {
       await PropertyServices.getOne(id).then((response) => {
         setProperty(response);
       });
+      // await PropertyServices.addView(id);
     } catch (error) {
       console.log(error);
     }
@@ -20,6 +22,7 @@ const PropertyDetails = () => {
 
   useEffect(() => {
     getProperty();
+    console.log(id);
   }, [id]);
 
   return (
@@ -38,11 +41,31 @@ const PropertyDetails = () => {
           </div>
 
           <a href="#section-last-properties" className="button">
-            {property?.type === "rent" ? "Louer" : "Acheter"}
+            {property?.type === "rent" ? "Louer" : "Faire une offre"}
           </a>
         </div>
 
-        <img src={property?.cover} alt={property?.name} />
+        <div className="img-wrapper">
+          <div className="tags">
+            <div className={property?.type === "rent" ? " rent" : "sale"}>
+              For {property?.type}
+            </div>
+            <div className={property?.type === "rent" ? " rent" : " sale"}>
+              {property?.category}
+            </div>
+            <div
+              className={
+                property?.type === "rent"
+                  ? " rent row alignCenter gap-1"
+                  : " sale row alignCenter gap-1"
+              }
+            >
+              <span style={{ color: "inherit" }}>{property?.stars}</span>
+              <img src={star} alt="note" className="star" />
+            </div>
+          </div>
+          <img src={property?.cover} alt={property?.name} />
+        </div>
       </section>
 
       {property?.type === "rent" && (
@@ -52,6 +75,8 @@ const PropertyDetails = () => {
             <h3>Avis</h3>
           </div>
           <h2>Qu'en pense la communauté ?</h2>
+
+          <PropertyComments property={property}/>
         </section>
       )}
     </>

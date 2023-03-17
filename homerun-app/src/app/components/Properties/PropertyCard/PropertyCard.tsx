@@ -2,10 +2,25 @@ import { Link } from "react-router-dom";
 import { IProperty } from "../../../../api/utils/utils";
 import Location from "../../../assets/icons/location.png";
 import Home from "../../../assets/icons/menu-home.png";
+import { UserContext } from "../../../contexts/UserContext";
+import { useContext } from "react";
 
 const PropertyCard = ({ property }: { property: IProperty }) => {
+  const { user } = useContext(UserContext);
+
+  console.log(user);
   return (
-    <div className="property" key={property._id}>
+    <div
+      className={
+        user?.properties.includes(property._id)
+          ? "property own-property"
+          : "property"
+      }
+      key={property._id}
+    >
+      {user?.properties.includes(property._id) && (
+        <div className="own-property-tag">Votre propriété</div>
+      )}
       <div className="top-property">
         <img src={property.cover} alt="property cover" />
         {property.type === "rent" ? (

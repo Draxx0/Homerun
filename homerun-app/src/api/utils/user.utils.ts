@@ -5,6 +5,16 @@ export interface IUser {
   password: string;
   avatar: string;
   properties: string[];
+  _id: string;
+}
+
+export interface IUserComment {
+  firstName: string;
+  lastName: string;
+  email: string;
+  avatar: string;
+  properties: string[];
+  _id: string;
 }
 
 export interface IUserLogin {

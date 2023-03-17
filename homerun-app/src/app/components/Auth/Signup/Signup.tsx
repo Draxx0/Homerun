@@ -15,6 +15,7 @@ const Signup = () => {
     password: "",
     avatar: "",
     properties: [],
+    _id: "",
   });
 
   const handleChangeCredentials = (e: React.ChangeEvent<HTMLInputElement>) => {
