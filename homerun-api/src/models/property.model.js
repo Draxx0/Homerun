@@ -43,6 +43,7 @@ const propertyModel = new Schema({
   type: {
     type: String,
     enum: ["rent", "sale"],
+    required: true,
   },
   user: {
     type: Schema.Types.ObjectId,

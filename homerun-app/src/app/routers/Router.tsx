@@ -1,14 +1,13 @@
-import { useContext } from "react";
-import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { UserContext } from "../contexts/UserContext";
 import AuthPage from "../views/authView/AuthPage";
-import BuyView from "../views/getProperty/GetProperty";
-import FindAgentsView from "../views/findAgentsView/FindAgentsView";
 import HomeView from "../views/homeView/HomeView";
 import NewsView from "../views/newsView/NewsView";
-import SellView from "../views/sellView/SellView";
-import { useEffect } from "react";
 import GetProperty from "../views/getProperty/GetProperty";
+import PutProperty from "../views/sellView/PutProperty";
+import ProtectedRoute from "./ProtectedRoute";
+import PropertyDetails from "../views/propertyDetails/PropertyDetails";
 
 const Router = () => {
   const { user } = useContext(UserContext);
@@ -22,8 +21,15 @@ const Router = () => {
     <Routes>
       <Route path="/" element={<HomeView />} />
       <Route path="/properties" element={<GetProperty />} />
-      <Route path="/sell" element={<SellView />} />
-      <Route path="/find-agents" element={<FindAgentsView />} />
+      <Route
+        path="/put-property"
+        element={
+          <ProtectedRoute>
+            <PutProperty />
+          </ProtectedRoute>
+        }
+      />
+      <Route path="/property-details/:id" element={<PropertyDetails />}></Route>
       <Route path="/news" element={<NewsView />} />
       <Route path="/auth/:connect" element={<AuthPage />} />
     </Routes>

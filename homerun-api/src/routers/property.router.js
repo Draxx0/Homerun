@@ -8,6 +8,7 @@ const endPoint = "/properties";
 
 //? Properties
 router.get(`${endPoint}`, PropertyController.getAllProperties);
+router.get(`${endPoint}/get/:id`, PropertyController.getOneProperty);
 router.post(`${endPoint}`, TokenMiddleware, PropertyController.createProperty);
 router.get(`${endPoint}/user/:id`, TokenMiddleware, PropertyController.getAllPropertiesByUser);
 router.delete(`${endPoint}/user/:id`, TokenMiddleware, PropertyController.deleteProperty);

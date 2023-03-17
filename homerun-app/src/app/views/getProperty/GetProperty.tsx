@@ -1,10 +1,12 @@
 import LastProperties from "../../components/Properties/LastProperties/LastProperties";
 import PropertyFilter from "../../components/Properties/PropertyFilter/PropertyFilter";
 import headerImg from "../../assets/images/buy-bg.jpg";
-import Categories from "../../components/Categories/Categories";
 import SearchType from "../../components/SearchType/SearchType";
+import { useContext } from "react";
+import { PropertiesContext } from "../../contexts/PropertiesContext";
 
 const GetProperty = () => {
+  const { selectedType } = useContext(PropertiesContext) as any;
   return (
     <>
       <section className="section-buy-header">
@@ -49,7 +51,9 @@ const GetProperty = () => {
           <h3>Rechercher</h3>
         </div>
         <div className="row spaceBtwn alignCenter">
-          <h2>Dernières propriétés</h2>
+          <h2>
+            Dernières propriétés <span className='colored'>{selectedType === "rent" ? "à louer" : selectedType === "sale" ? "à acheter" : ""}</span>
+          </h2>
 
           <PropertyFilter />
         </div>

@@ -12,6 +12,15 @@ const PropertyController = {
     }
   },
 
+  getOneProperty: async (req, res) => {
+    try {
+      const property = await Property.findById(req.params.id).populate("user");
+      res.status(200).json(property);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  },
+
   getPropertyCategories: async (req, res) => {
     try {
       const propertyCategories = await PropertyCategory.find();
@@ -112,6 +121,7 @@ const PropertyController = {
   getMostViewedProperties: async (req, res) => {
     try {
       const properties = await Property.find().sort({ views: -1 }).limit(6);
+      console.log(properties);
       res.status(200).json(properties);
     } catch (error) {
       res.status(500).json({ message: error.message });

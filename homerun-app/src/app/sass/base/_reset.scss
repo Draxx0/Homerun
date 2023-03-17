@@ -259,9 +259,34 @@ a:hover {
  border-radius: 4px;
 }
 
+.section-buy-header,
+.section-property-details {
+ display: flex;
+ justify-content: space-between;
+ width: 90%;
+ margin: 200px 0 200px auto;
+ gap: 100px;
+
+ .column {
+  gap: 30px;
+  width: 50%;
+ }
+
+ img {
+  width: 50%;
+  object-fit: cover;
+  border-radius: 16px 0 0 16px;
+ }
+
+ .location-icon {
+  width: auto;
+ }
+}
+
 .section-categories,
 .section-most-viewed,
-.section-last-properties {
+.section-last-properties,
+.section-reviews {
  width: 90%;
  margin: 50px auto auto auto;
 

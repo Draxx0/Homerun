@@ -57,7 +57,10 @@ const MostViewedProperties = () => {
                       ) : (
                         <p className="property-price">${property.price}</p>
                       )}
-                      <Link to="" className="button">
+                      <Link
+                        to={`property-details/${property._id}`}
+                        className="button"
+                      >
                         See more
                       </Link>
                     </div>
@@ -97,7 +100,10 @@ const MostViewedProperties = () => {
                     ) : (
                       <p className="property-price">${property.price}</p>
                     )}
-                    <Link to="" className="button">
+                    <Link
+                      to={`property-details/${property._id}`}
+                      className="button"
+                    >
                       See more
                     </Link>
                   </div>

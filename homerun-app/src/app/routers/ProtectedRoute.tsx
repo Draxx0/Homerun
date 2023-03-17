@@ -10,7 +10,7 @@ type IProps = {
 const ProtectedRoute: FC<IProps> = ({ children }) => {
   const { user } = useContext(UserContext);
 
-  if (!user) return <Navigate to="/auth" />;
+  if (!user) return <Navigate to="/auth/signin" />;
 
   return <>{children}</>;
 };

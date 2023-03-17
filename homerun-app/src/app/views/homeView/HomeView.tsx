@@ -47,7 +47,7 @@ const HomeView = () => {
         </div>
 
         <div className="row spaceBtwn">
-          <h2>Les {selectedCategory ? selectedCategory : "propriétés"} les plus consultés</h2>
+          <h2>Les <span className='colored'>{selectedCategory ? selectedCategory : "propriétés"}</span> les plus consultés</h2>
           <Link to="/properties" className="row alignCenter">
             Voir plus <img src={ViewMore} alt="viewmore" />
           </Link>

@@ -30,16 +30,16 @@ const Navbar = () => {
           </li>
 
           <li className="links-list__item">
-            <NavLink to="/find-agents">Agents</NavLink>
-          </li>
-
-          <li className="links-list__item">
             <NavLink to="/news">Actualités</NavLink>
           </li>
         </ul>
 
         {user ? (
           <div className="row gap-2 alignCenter">
+            <Link to="/put-property" className="black-button">
+              Mettre ma propriété sur{" "}
+              <span className="colored bold">Homerun</span>
+            </Link>
             <div className="user-container">
               <img
                 src={user.avatar}
@@ -50,9 +50,6 @@ const Navbar = () => {
                 Bonjour <span className="colored bold">{user.firstName}</span>
               </span>
             </div>
-            <Link to="/" className="black-button">
-              Mettre ma propriété sur <span className="colored bold">Homerun</span>
-            </Link>
             <button className="button" onClick={Signout}>
               Déconnexion
             </button>
@@ -60,8 +57,9 @@ const Navbar = () => {
         ) : (
           <div className="row gap-2">
             <div className="auth-button">
-              <Link to="" className="black-button">
-                Mettre ma propriété sur <span className="colored bold">Homerun</span>
+              <Link to="/put-property" className="black-button">
+                Mettre ma propriété sur{" "}
+                <span className="colored bold">Homerun</span>
               </Link>
             </div>
             <div className="auth-button">

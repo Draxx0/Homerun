@@ -9,8 +9,13 @@ const getAll = async () => {
   return response.data;
 };
 
+const getOne = async (id: string) => {
+  const response = await axios.get(`${process.env.REACT_APP_API_URL}${endPoint}/get/${id}`);
+  return response.data;
+};
+
 const getCategories = async () => {
-  const response = await axios.get(`${process.env.REACT_APP_API_URL}/properties/categories`);
+  const response = await axios.get(`${process.env.REACT_APP_API_URL}${endPoint}/categories`);
   return response.data;
 };
 
@@ -25,17 +30,18 @@ const deleteOne = async (id: string) => {
 };
 
 const getMostViewed = async () => {
-  const response = await axios.get(`${process.env.REACT_APP_API_URL}/properties/most-viewed`);
+  const response = await axios.get(`${process.env.REACT_APP_API_URL}${endPoint}/most-viewed`);
   return response.data;
 };
 
 const getLatest = async () => {
-  const response = await axios.get(`${process.env.REACT_APP_API_URL}/properties/latest`);
+  const response = await axios.get(`${process.env.REACT_APP_API_URL}${endPoint}/latest`);
   return response.data;
 };
 
 const PropertyServices = {
   getAll,
+  getOne,
   getCategories,
   create,
   deleteOne,

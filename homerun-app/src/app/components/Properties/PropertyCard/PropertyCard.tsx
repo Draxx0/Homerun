@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { IProperty } from "../../../../api/utils/utils";
-import Location from '../../../assets/icons/location.png'
-import Home from '../../../assets/icons/menu-home.png'
+import Location from "../../../assets/icons/location.png";
+import Home from "../../../assets/icons/menu-home.png";
 
 const PropertyCard = ({ property }: { property: IProperty }) => {
   return (
@@ -35,7 +35,7 @@ const PropertyCard = ({ property }: { property: IProperty }) => {
           ) : (
             <p className="property-price">${property.price}</p>
           )}
-          <Link to="" className="button">
+          <Link to={`property-details/${property._id}`} className="button">
             See more
           </Link>
         </div>
