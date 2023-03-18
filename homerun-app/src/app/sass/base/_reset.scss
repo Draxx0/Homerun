@@ -52,15 +52,37 @@ input {
  color: $color-secondary;
 }
 
+select {
+ outline: none;
+ border: none;
+}
+
 input[type="submit"] {
  cursor: pointer;
  width: fit-content;
 }
 
-input:not(input[type="submit"]) {
+select {
+ cursor: pointer;
+ color: $color-secondary;
+}
+
+select:has(option:checked[disabled]) {
+  color: gray;
+}
+
+
+select option {
+ color: $color-secondary;
+}
+
+
+input:not(input[type="submit"]),
+select {
  background-color: #F4F4F4;
  padding: 13px 10px;
  border-radius: 6px;
+ appearance: none;
 }
 
 input::placeholder {
@@ -331,6 +353,18 @@ a:hover {
 
  .location-icon {
   width: auto;
+ }
+}
+
+.section-property-form {
+ display: flex;
+ flex-direction: column;
+ width: 70%;
+ margin: 150px auto;
+ gap: 100px;
+
+ h1 {
+  text-align: center;
  }
 }
 

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { IProperty } from "../../../../api/utils/utils";
 import Location from "../../../assets/icons/location.png";
 import Home from "../../../assets/icons/menu-home.png";
@@ -7,8 +7,7 @@ import { useContext } from "react";
 
 const PropertyCard = ({ property }: { property: IProperty }) => {
   const { user } = useContext(UserContext);
-
-  console.log(user);
+  const navigate = useNavigate();
   return (
     <div
       className={
@@ -50,9 +49,12 @@ const PropertyCard = ({ property }: { property: IProperty }) => {
           ) : (
             <p className="property-price">${property.price}</p>
           )}
-          <Link to={`property-details/${property._id}`} className="button">
+          <div
+            onClick={() => navigate(`/property-details/${property._id}`)}
+            className="button"
+          >
             See more
-          </Link>
+          </div>
         </div>
       </div>
     </div>

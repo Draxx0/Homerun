@@ -5,7 +5,7 @@ import AuthPage from "../views/authView/AuthPage";
 import HomeView from "../views/homeView/HomeView";
 import NewsView from "../views/newsView/NewsView";
 import GetProperty from "../views/getProperty/GetProperty";
-import PutProperty from "../views/sellView/PutProperty";
+import PutProperty from "../views/putProperty/PutProperty";
 import ProtectedRoute from "./ProtectedRoute";
 import PropertyDetails from "../views/propertyDetails/PropertyDetails";
 

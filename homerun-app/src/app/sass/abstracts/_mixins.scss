@@ -6,6 +6,7 @@
  transition: all 0.3s ease-in-out;
  font-weight: bold;
  border: 2px solid transparent;
+ cursor: pointer;
 
  &:hover {
   background-color: $color-secondary;
@@ -21,6 +22,7 @@
  border-radius: 32px;
  transition: all 0.3s ease-in-out;
  font-weight: bold;
+ cursor: pointer;
 
  &:hover {
   background-color: $color-secondary;
@@ -37,6 +39,7 @@
  transition: all 0.3s ease-in-out;
  font-weight: bold;
  font-size: 15px;
+ cursor: pointer;
 
  &:hover {
   background-color: $color-primary;

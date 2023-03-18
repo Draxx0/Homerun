@@ -2,9 +2,6 @@ import { IProperty } from "../../../../api/utils/utils";
 import { useContext, useEffect, useState } from "react";
 import { PropertiesContext } from "../../../contexts/PropertiesContext";
 import PropertyServices from "../../../../api/services/properties.service";
-import { Link } from "react-router-dom";
-import Location from "../../../assets/icons/location.png";
-import Home from "../../../assets/icons/menu-home.png";
 import PropertyCard from "../PropertyCard/PropertyCard";
 
 const MostViewedProperties = () => {
@@ -33,7 +30,7 @@ const MostViewedProperties = () => {
             })
         : mostViewedProperties?.map((property: IProperty) => {
             return (
-              <PropertyCard property={property}/>
+              <PropertyCard property={property} key={property._id} />
             );
           })}
     </div>
