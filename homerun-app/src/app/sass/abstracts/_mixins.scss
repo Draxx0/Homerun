@@ -8,9 +8,14 @@
  border: 2px solid transparent;
  cursor: pointer;
 
- &:hover {
+ &:hover:not([disabled]) {
   background-color: $color-secondary;
   color: #FFDBD7;
+ }
+
+ &:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
  }
 }
 
@@ -24,9 +29,14 @@
  font-weight: bold;
  cursor: pointer;
 
- &:hover {
+ &:hover:not([disabled]) {
   background-color: $color-secondary;
   color: #FFDBD7;
+ }
+
+ &:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
  }
 }
 
@@ -41,8 +51,13 @@
  font-size: 15px;
  cursor: pointer;
 
- &:hover {
+ &:hover:not([disabled]) {
   background-color: $color-primary;
   color: white;
+ }
+
+ &:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
  }
 }

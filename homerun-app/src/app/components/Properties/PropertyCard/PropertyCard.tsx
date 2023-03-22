@@ -23,9 +23,9 @@ const PropertyCard = ({ property }: { property: IProperty }) => {
       <div className="top-property">
         <img src={property.cover} alt="property cover" />
         {property.type === "rent" ? (
-          <div className="type-tag rent">For rent</div>
+          <div className="type-tag rent">Location</div>
         ) : (
-          <div className="type-tag sale">For sale</div>
+          <div className="type-tag sale">Vente</div>
         )}
       </div>
       <div className="bottom-property">
@@ -53,7 +53,7 @@ const PropertyCard = ({ property }: { property: IProperty }) => {
             onClick={() => navigate(`/property-details/${property._id}`)}
             className="button"
           >
-            See more
+            Voir plus
           </div>
         </div>
       </div>

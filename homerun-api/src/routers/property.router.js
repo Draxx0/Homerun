@@ -21,7 +21,7 @@ router.put(`${endPoint}/add-view/:id`, PropertyController.addPropertyView);
 router.get(`${endPoint}/categories`, PropertyController.getPropertyCategories);
 router.post(`${endPoint}/categories`, PropertyController.createCategory);
 
-//? Property Categories
+//? Property Comments
 router.get(`${endPoint}/comments/:id`, PropertyController.getPropertyComments);
 router.post(`${endPoint}/comments/:id`, TokenMiddleware, PropertyController.createComment);
 

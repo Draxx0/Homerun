@@ -110,7 +110,6 @@ const PropertyController = {
   getMostViewedProperties: async (req, res) => {
     try {
       const properties = await Property.find().sort({ views: -1 }).limit(6);
-      console.log(properties);
       res.status(200).json(properties);
     } catch (error) {
       res.status(500).json({ message: error.message });
@@ -164,7 +163,6 @@ const PropertyController = {
       const propertyComments = await PropertyComment.find({
         property: req.params.id,
       }).populate("user");
-      console.log(propertyComments);
       res.status(200).json(propertyComments);
     } catch (error) {
       res.status(500).json({ message: error.message });
@@ -200,7 +198,7 @@ const PropertyController = {
 
       await property.save();
 
-      res.status(201).json(property);
+      res.status(201).json(comment);
     } catch (error) {
       res.status(500).json({ message: error.message });
     }

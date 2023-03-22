@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import Dropzone from "../Dropzone/Dropzone";
 interface FormValues {
   location: string;
   address: string;
@@ -113,64 +113,7 @@ function FormStepTwo(props: {
 
   return (
     <>
-      {/* <div className="step">
-        <div className="form-group column gap-1">
-          <label htmlFor="category">Type de propriété</label>
-          <select
-            name="category"
-            id="category"
-            onChange={handleChange}
-            required
-          >
-            <option value="" selected disabled hidden>
-              Sélectionner ici
-            </option>
-            <option value="maison">Maison</option>
-            <option value="appartement">Appartement</option>
-            <option value="villa">Villa</option>
-            <option value="bureaux">Bureaux</option>
-          </select>
-        </div>
-
-        <div className="form-group column gap-1">
-          <label htmlFor="type">Est-ce une location ou une vente ?</label>
-          <select name="type" id="type" onChange={handleChange} required>
-            <option value="" selected disabled hidden>
-              Sélectionner ici
-            </option>
-            <option value="rent">Location</option>
-            <option value="sell">Vente</option>
-          </select>
-        </div>
-
-        <div className="form-group column gap-1">
-          <label htmlFor="location">
-            Dans quel ville se situe votre propriété ?
-          </label>
-          <input
-            type="text"
-            id="location"
-            name="location"
-            onChange={handleChange}
-            placeholder="Ex: Paris"
-            required
-          />
-        </div>
-
-        <div className="form-group column gap-1">
-          <label htmlFor="address">
-            Renseigner l'addresse de votre propriété
-          </label>
-          <input
-            type="text"
-            id="address"
-            name="address"
-            onChange={handleChange}
-            placeholder="Ex: 12 rue de la paix"
-            required
-          />
-        </div>
-      </div> */}
+      <Dropzone />
       <div className="row alignCenter spaceBtwn">
         <button className="button" onClick={prevStep}>
           Précédent
@@ -231,7 +174,6 @@ const StepForm = () => {
   };
 
   const submit = () => {
-    // Validez les données du formulaire
     if (
       formData.location &&
       formData.address &&
@@ -247,12 +189,34 @@ const StepForm = () => {
     <>
       <div className="step-advance">
         <div className="step-advance__item">
-          <div className={step === 1 || step === 2 ? "step-advance__item__number step-advance__item__number-active" : "step-advance__item__number"}>1</div>
+          <div
+            className={
+              step === 1 || step === 2
+                ? "step-advance__item__number step-advance__item__number-active"
+                : "step-advance__item__number"
+            }
+          >
+            1
+          </div>
           <div className="step-advance__item__title">Informations</div>
         </div>
-        <div className={step === 2 ? "step-advance__linkbar step-advance__linkbar-active" : "step-advance__linkbar"}></div>
+        <div
+          className={
+            step === 2
+              ? "step-advance__linkbar step-advance__linkbar-active"
+              : "step-advance__linkbar"
+          }
+        ></div>
         <div className="step-advance__item">
-          <div className={step === 2 ? "step-advance__item__number step-advance__item__number-active" : "step-advance__item__number"}>2</div>
+          <div
+            className={
+              step === 2
+                ? "step-advance__item__number step-advance__item__number-active"
+                : "step-advance__item__number"
+            }
+          >
+            2
+          </div>
           <div className="step-advance__item__title">Photos</div>
         </div>
       </div>

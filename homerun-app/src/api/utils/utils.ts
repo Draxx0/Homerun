@@ -13,8 +13,20 @@ export interface IProperty {
   cover: string;
   type: string;
   stars: number;
+  propertySize: string;
+  availableAt: string;
+  propertyStuff: IPropertyStuff[];
   comments: IComment[];
   _id: string;
+}
+
+export interface IPropertyStuff {
+  totalRooms: number;
+  totalBathrooms: number;
+  totalBedrooms: number;
+  isGarage: boolean;
+  isToilet: boolean;
+  isKitchen: boolean;
 }
 
 export interface IComment {
@@ -23,6 +35,11 @@ export interface IComment {
   stars: number;
   user: IUserComment;
   property: string;
+}
+
+export interface ICommentCredentials {
+  content: string;
+  stars: number;
 }
 
 export interface IPropertyCategory {

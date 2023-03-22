@@ -21,15 +21,24 @@ const propertyModel = new Schema({
   description: {
     type: String,
     required: true,
+    minLength: 50,
   },
   category: {
     type: String,
-    enum: ["House", "Apartment", "Office", "Modern villa"],
+    enum: ["Maison", "Appartement", "Bureaux", "Villa"],
+    required: true,
+  },
+  propertySize: {
+    type: String,
     required: true,
   },
   views: {
     type: Number,
     default: 0,
+  },
+  availableAt: {
+    type: String,
+    required: true,
   },
   images: [
     {
@@ -59,6 +68,33 @@ const propertyModel = new Schema({
       ref: "PropertyComment",
     },
   ],
+  propertyStuff: {
+    totalRooms: {
+      type: Number,
+      required: true,
+    },
+    totalBathrooms: {
+      type: Number,
+      required: true,
+    },
+    totalBedrooms: {
+      type: Number,
+      required: true,
+    },
+    isGarage: {
+      type: Boolean,
+      default: false,
+    },
+    isKitchen: {
+      type: Boolean,
+      default: false,
+    },
+    isToilet: {
+      type: Boolean,
+      default: false,
+    },
+  },
+
   createdAt: {
     type: Date,
     default: Date.now,

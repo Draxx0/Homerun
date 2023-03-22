@@ -12,7 +12,6 @@ const getTokenFromLocalStorage = () => {
 
 const isValidToken = (accessToken: string) => {
   const decodedToken: IToken = jwtDecode(accessToken);
-  console.log(decodedToken);
   const currentTime = Date.now() / 1000;
   return decodedToken.exp > currentTime;
 };

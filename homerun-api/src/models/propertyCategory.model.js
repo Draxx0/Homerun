@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const propertyCategory = new Schema({
   category: {
     type: String,
-    enum: ["House", "Apartment", "Office", "Modern villa"],
+    enum: ["Maison", "Appartement", "Bureaux", "Villa"],
     required: true,
   },
   image: {

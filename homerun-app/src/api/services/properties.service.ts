@@ -1,6 +1,6 @@
 import axios from "axios";
 import instance from "./api.service";
-import { IProperty } from "../utils/utils";
+import { ICommentCredentials, IProperty } from "../utils/utils";
 
 const endPoint = "/properties";
 
@@ -61,6 +61,14 @@ const getComments = async (id: string) => {
   return response.data;
 };
 
+const addComment = async (id: string, comment: ICommentCredentials) => {
+  const response = await instance.post(
+    `${process.env.REACT_APP_API_URL}${endPoint}/comments/${id}`,
+    comment
+  );
+  return response.data;
+};
+
 const PropertyServices = {
   getAll,
   getOne,
@@ -70,7 +78,8 @@ const PropertyServices = {
   getMostViewed,
   getLatest,
   addView,
-  getComments
+  getComments,
+  addComment,
 };
 
 export default PropertyServices;

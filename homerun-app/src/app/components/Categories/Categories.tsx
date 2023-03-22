@@ -19,7 +19,7 @@ const Categories = () => {
                   {category.properties.length} properties
                 </span>
               ) : (
-                <span className="category__lenght">No properties yet</span>
+                <span className="category__lenght">Pas de propriétés pour l'instant</span>
               ))}
 
             {location.pathname === "/buy" &&
