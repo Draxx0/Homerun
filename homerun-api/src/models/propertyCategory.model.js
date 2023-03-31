@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const propertyCategory = new Schema({
@@ -19,4 +19,6 @@ const propertyCategory = new Schema({
   ],
 });
 
-module.exports = mongoose.model("PropertyCategory", propertyCategory);
+const PropertyCategory = mongoose.model("PropertyCategory", propertyCategory);
+
+export default PropertyCategory;

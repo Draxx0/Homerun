@@ -1,6 +1,6 @@
 import axios from "axios";
 import instance from "./api.service";
-import { ICommentCredentials, IProperty } from "../utils/utils";
+import { ICommentCredentials, IProperty } from "../utils/property";
 
 const endPoint = "/properties";
 
@@ -26,7 +26,36 @@ const getCategories = async () => {
 };
 
 const create = async (credentials: IProperty) => {
-  const response = await instance.post(endPoint, credentials);
+  console.log("credentials :", credentials);
+  const formData = new FormData();
+  formData.append("name", credentials.name);
+  formData.append("location", credentials.location);
+  formData.append("address", credentials.address);
+  formData.append("price", String(credentials.price));
+  formData.append("description", credentials.description);
+  formData.append("category", credentials.category);
+  formData.append("propertySize", credentials.propertySize);
+  formData.append("availableAt", credentials.availableAt);
+  formData.append("type", credentials.type);
+
+  await uploadImages(formData);
+
+  // const response = await instance.post(`${endPoint}/create`, formData);
+  // return response.data;
+};
+
+const uploadImages = async (formData: any) => {
+  const files = formData.getAll("files");
+  console.log("formDataImages :", files);
+  const response = await instance.post(
+    `${process.env.REACT_APP_API_URL}${endPoint}/upload-images`,
+    files,
+    {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    }
+  );
   return response.data;
 };
 

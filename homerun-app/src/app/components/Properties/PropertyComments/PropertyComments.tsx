@@ -2,7 +2,7 @@ import {
   IComment,
   ICommentCredentials,
   IProperty,
-} from "../../../../api/utils/utils";
+} from "../../../../api/utils/property";
 import { useContext, useEffect, useState } from "react";
 import star from "../../../assets/icons/star.svg";
 import PropertyServices from "../../../../api/services/properties.service";
@@ -57,7 +57,7 @@ const PropertyComments = ({ property }: { property: IProperty }) => {
         commentsCredentials
       );
       comments.splice(0, 0, newComment);
-      if(comments.length > 3) comments.pop();
+      if (comments.length > 3) comments.pop();
       setComments([...comments]);
       setCommentsCredentials({
         content: "",

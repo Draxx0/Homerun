@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const propertyComment = new Schema({
@@ -22,4 +22,6 @@ const propertyComment = new Schema({
   },
 });
 
-module.exports = mongoose.model("PropertyComment", propertyComment);
+const PropertyComment = mongoose.model("PropertyComment", propertyComment);
+
+export default PropertyComment;

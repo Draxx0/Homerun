@@ -1,8 +1,9 @@
-const mongoose = require("mongoose");
-require("dotenv").config();
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
 
 mongoose.set("strictQuery", true);
-module.exports = async () => {
+export const connect = async () => {
   try {
     await mongoose.connect(
       `mongodb://${process.env.MONGO_INITDB_ROOT_USERNAME}:${process.env.MONGO_INITDB_ROOT_PASSWORD}@${process.env.MONGO_ADDRESSE}:${process.env.MONGO_PORT}`

@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import PropertyServices from "../../../api/services/properties.service";
-import { IProperty } from "../../../api/utils/utils";
+import { IProperty } from "../../../api/utils/property";
 import location from "../../assets/icons/location-xl.png";
 import star from "../../assets/icons/star.svg";
 import PropertyComments from "../../components/Properties/PropertyComments/PropertyComments";
+import PropertyStuff from "../../components/Properties/PropertyStuff/PropertyStuff";
 import convertStringToData from "../../functions/convertStringToData";
 const PropertyDetails = () => {
   const [property, setProperty] = useState<IProperty | null>(null);
@@ -96,6 +97,8 @@ const PropertyDetails = () => {
         </div>
 
         <h2 className="row alignCenter">Informations complémentaires</h2>
+
+        <PropertyStuff property={property} />
       </section>
 
       {property?.type === "rent" && (

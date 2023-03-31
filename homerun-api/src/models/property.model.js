@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const propertyModel = new Schema({
@@ -69,32 +69,9 @@ const propertyModel = new Schema({
     },
   ],
   propertyStuff: {
-    totalRooms: {
-      type: Number,
-      required: true,
-    },
-    totalBathrooms: {
-      type: Number,
-      required: true,
-    },
-    totalBedrooms: {
-      type: Number,
-      required: true,
-    },
-    isGarage: {
-      type: Boolean,
-      default: false,
-    },
-    isKitchen: {
-      type: Boolean,
-      default: false,
-    },
-    isToilet: {
-      type: Boolean,
-      default: false,
-    },
+    type: Schema.Types.Mixed,
+    ref: "PropertyStuff",
   },
-
   createdAt: {
     type: Date,
     default: Date.now,
@@ -109,4 +86,6 @@ const propertyModel = new Schema({
   },
 });
 
-module.exports = mongoose.model("Property", propertyModel);
+const Property = mongoose.model("Property", propertyModel);
+
+export default Property;

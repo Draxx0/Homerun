@@ -1,4 +1,4 @@
-import { IPaginationProps } from "../../../../api/utils/utils";
+import { IPaginationProps } from "../../../../api/utils/property";
 
 const PropertiesPagination = ({
   totalItems,

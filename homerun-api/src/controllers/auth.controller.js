@@ -1,6 +1,6 @@
-const User = require("../models/user.model");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+import User from "../models/user.model.js";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 const AuthController = {
   signup: async (req, res) => {
@@ -63,4 +63,4 @@ const AuthController = {
   },
 };
 
-module.exports = AuthController;
+export default AuthController;

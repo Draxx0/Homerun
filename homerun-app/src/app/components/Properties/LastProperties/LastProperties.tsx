@@ -1,4 +1,4 @@
-import { IProperty } from "../../../../api/utils/utils";
+import { IProperty } from "../../../../api/utils/property";
 import { useContext, useEffect, useState, useRef } from "react";
 import PropertyServices from "../../../../api/services/properties.service";
 import { PropertiesContext } from "../../../contexts/PropertiesContext";

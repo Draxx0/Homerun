@@ -1,10 +1,10 @@
-const express = require("express");
-const UserController = require("../controllers/user.controller");
-const TokenMiddleware = require("../middlewares/token.middleware");
-const router = express.Router();
+import express from "express";
+import UserController from "../controllers/user.controller.js";
+import TokenMiddleware from "../middlewares/token.middleware.js";
+const userRouter = express.Router();
 
-router.get("/users", UserController.getAll);
-router.delete("/users/:id", TokenMiddleware, UserController.delete);
-router.put("/users/:id", TokenMiddleware, UserController.update);
+userRouter.get("/users", UserController.getAll);
+userRouter.delete("/users/:id", TokenMiddleware, UserController.delete);
+userRouter.put("/users/:id", TokenMiddleware, UserController.update);
 
-module.exports = router;
+export default userRouter;

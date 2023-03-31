@@ -1,7 +1,7 @@
-const Property = require("../models/property.model");
-const PropertyCategory = require("../models/propertyCategory.model");
-const User = require("../models/user.model");
-const PropertyComment = require("../models/propertyComment.model");
+import Property from "../models/property.model.js";
+import PropertyCategory from "../models/propertyCategory.model.js";
+import User from "../models/user.model.js";
+import PropertyComment from "../models/propertyComment.model.js";
 
 const PropertyController = {
   //? Properties ************************************************
@@ -234,4 +234,4 @@ const PropertyController = {
   },
 };
 
-module.exports = PropertyController;
+export default PropertyController;

@@ -1,6 +1,5 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import { UserContext } from "../contexts/UserContext";
 import AuthPage from "../views/authView/AuthPage";
 import HomeView from "../views/homeView/HomeView";
 import NewsView from "../views/newsView/NewsView";
@@ -8,9 +7,9 @@ import GetProperty from "../views/getProperty/GetProperty";
 import PutProperty from "../views/putProperty/PutProperty";
 import ProtectedRoute from "./ProtectedRoute";
 import PropertyDetails from "../views/propertyDetails/PropertyDetails";
+import ProfileView from "../views/profileView/ProfileView";
 
 const Router = () => {
-  const { user } = useContext(UserContext);
   const location = useLocation();
 
   useEffect(() => {
@@ -31,6 +30,14 @@ const Router = () => {
       />
       <Route path="/property-details/:id" element={<PropertyDetails />}></Route>
       <Route path="/news" element={<NewsView />} />
+      <Route
+        path="/profile/:user"
+        element={
+          <ProtectedRoute>
+            <ProfileView />
+          </ProtectedRoute>
+        }
+      />
       <Route path="/auth/:connect" element={<AuthPage />} />
     </Routes>
   );

@@ -8,7 +8,7 @@ import {
   useEffect,
 } from "react";
 import PropertyServices from "../../api/services/properties.service";
-import { IProperty, IPropertyCategories } from "../../api/utils/utils";
+import { IProperty, IPropertyCategories } from "../../api/utils/property";
 
 type PropertyType = {
   properties: IProperty | null;
@@ -25,11 +25,11 @@ const PropertiesContext = createContext<PropertyType>({
   properties: null,
   setProperties: () => {},
   categories: null,
-  setCategories: () => { },
+  setCategories: () => {},
   selectedCategory: "",
-  setSelectedCategory: () => { },
+  setSelectedCategory: () => {},
   selectedType: "",
-  setSelectedType: () => { },
+  setSelectedType: () => {},
 });
 
 type IProps = {

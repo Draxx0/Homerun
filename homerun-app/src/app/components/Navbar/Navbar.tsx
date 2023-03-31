@@ -42,6 +42,7 @@ const Navbar = () => {
             </Link>
             <div className="user-container">
               <img
+                onClick={() => navigate("/profile/" + user.firstName + "-" + user.lastName)}
                 src={user.avatar}
                 alt="User"
                 className="user-container__icon"

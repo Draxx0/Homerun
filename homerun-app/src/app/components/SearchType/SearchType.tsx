@@ -1,6 +1,6 @@
 import { PropertiesContext } from "../../contexts/PropertiesContext";
 import { useContext } from "react";
-import { IProperty } from "../../../api/utils/utils";
+import { IProperty } from "../../../api/utils/property";
 
 interface ISearchType {
   type: string;
@@ -9,7 +9,9 @@ interface ISearchType {
 }
 
 const SearchType = () => {
-  const { properties, setSelectedType, selectedType } = useContext(PropertiesContext) as any;
+  const { properties, setSelectedType, selectedType } = useContext(
+    PropertiesContext
+  ) as any;
   const searchType = [
     {
       type: "rent",
@@ -28,7 +30,19 @@ const SearchType = () => {
     <div className="search-types">
       {searchType.map((searchType: ISearchType, index: number) => {
         return (
-          <div className={selectedType === searchType.type ? "search-type search-type-active" : "search-type"} key={index} onClick={() => setSelectedType(selectedType === searchType.type ? "" : searchType.type)}>
+          <div
+            className={
+              selectedType === searchType.type
+                ? "search-type search-type-active"
+                : "search-type"
+            }
+            key={index}
+            onClick={() =>
+              setSelectedType(
+                selectedType === searchType.type ? "" : searchType.type
+              )
+            }
+          >
             <img src={searchType.image} alt="" />
             <span className="search-type__name">{searchType.label}</span>
             <span className="search-type__lenght">
@@ -37,7 +51,7 @@ const SearchType = () => {
                   (property: IProperty) => property.type === searchType.type
                 ).length
               }{" "}
-              properties
+              propriéte(s)
             </span>
           </div>
         );

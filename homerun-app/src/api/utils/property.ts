@@ -14,8 +14,9 @@ export interface IProperty {
   type: string;
   stars: number;
   propertySize: string;
+  isFurnitured: boolean | string;
   availableAt: string;
-  propertyStuff: IPropertyStuff[];
+  propertyStuff: IPropertyStuff;
   comments: IComment[];
   _id: string;
 }
@@ -24,10 +25,18 @@ export interface IPropertyStuff {
   totalRooms: number;
   totalBathrooms: number;
   totalBedrooms: number;
+  totalBalconies: number;
+  totalTerraces: number;
   isGarage: boolean;
   isToilet: boolean;
   isKitchen: boolean;
+  filter: (
+    callbackfn: (value: any, index: number, array: any[]) => boolean,
+    thisArg?: any
+  ) => any[];
 }
+
+export interface IPropertyCreate extends IProperty {}
 
 export interface IComment {
   _id: string;

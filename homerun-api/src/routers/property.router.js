@@ -1,33 +1,33 @@
-const express = require("express");
-const PropertyController = require("../controllers/property.controller");
-const TokenMiddleware = require("../middlewares/token.middleware");
-const router = express.Router();
+import express from "express";
+import PropertyController from "../controllers/property.controller.js";
+import TokenMiddleware from "../middlewares/token.middleware.js";
+const propertyRouter = express.Router();
 
 const endPoint = "/properties";
 
 
 //? Properties
-router.get(`${endPoint}`, PropertyController.getAllProperties);
-router.get(`${endPoint}/get/:id`, PropertyController.getOneProperty);
-router.post(`${endPoint}`, TokenMiddleware, PropertyController.createProperty);
-router.get(`${endPoint}/user/:id`, TokenMiddleware, PropertyController.getAllPropertiesByUser);
-router.delete(`${endPoint}/user/:id`, TokenMiddleware, PropertyController.deleteProperty);
-router.get(`${endPoint}/most-viewed`, PropertyController.getMostViewedProperties);
-router.get(`${endPoint}/latest`, PropertyController.getLatestProperties);
-router.put(`${endPoint}/add-view/:id`, PropertyController.addPropertyView);
+propertyRouter.get(`${endPoint}`, PropertyController.getAllProperties);
+propertyRouter.get(`${endPoint}/get/:id`, PropertyController.getOneProperty);
+propertyRouter.post(`${endPoint}`, TokenMiddleware, PropertyController.createProperty);
+propertyRouter.get(`${endPoint}/user/:id`, TokenMiddleware, PropertyController.getAllPropertiesByUser);
+propertyRouter.delete(`${endPoint}/user/:id`, TokenMiddleware, PropertyController.deleteProperty);
+propertyRouter.get(`${endPoint}/most-viewed`, PropertyController.getMostViewedProperties);
+propertyRouter.get(`${endPoint}/latest`, PropertyController.getLatestProperties);
+propertyRouter.put(`${endPoint}/add-view/:id`, PropertyController.addPropertyView);
 
 
 //? Property Categories
-router.get(`${endPoint}/categories`, PropertyController.getPropertyCategories);
-router.post(`${endPoint}/categories`, PropertyController.createCategory);
+propertyRouter.get(`${endPoint}/categories`, PropertyController.getPropertyCategories);
+propertyRouter.post(`${endPoint}/categories`, PropertyController.createCategory);
 
 //? Property Comments
-router.get(`${endPoint}/comments/:id`, PropertyController.getPropertyComments);
-router.post(`${endPoint}/comments/:id`, TokenMiddleware, PropertyController.createComment);
+propertyRouter.get(`${endPoint}/comments/:id`, PropertyController.getPropertyComments);
+propertyRouter.post(`${endPoint}/comments/:id`, TokenMiddleware, PropertyController.createComment);
 
 //? Property Tools
-router.delete(`${endPoint}`, PropertyController.toolsDeleteAllProperties);
-router.delete(`${endPoint}/categories`, PropertyController.toolsDeleteAllCategories);
-router.delete(`${endPoint}/comments`, PropertyController.toolsDeleteAllComments);
+propertyRouter.delete(`${endPoint}`, PropertyController.toolsDeleteAllProperties);
+propertyRouter.delete(`${endPoint}/categories`, PropertyController.toolsDeleteAllCategories);
+propertyRouter.delete(`${endPoint}/comments`, PropertyController.toolsDeleteAllComments);
 
-module.exports = router;
+export default propertyRouter;

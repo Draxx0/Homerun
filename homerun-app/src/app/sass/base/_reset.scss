@@ -84,6 +84,11 @@ select option {
   color: $color-secondary;
 }
 
+input[type="radio"] {
+  padding: 0 !important;
+  background-color: transparent !important;
+}
+
 
 input:not(input[type="submit"]),
 select,
@@ -303,6 +308,10 @@ a:hover {
   text-transform: uppercase;
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+
 .bold {
   font-weight: 700;
 }
@@ -311,8 +320,12 @@ a:hover {
   color: $color-secondary;
 }
 
+.gray {
+  color: #8C8C8C;
+}
+
 .gap-1 {
-  gap: 10px;
+  gap: 10px !important;
 }
 
 .gap-2 {
@@ -330,8 +343,14 @@ a:hover {
   border-radius: 4px;
 }
 
+.input-disabled {
+  background-color: #d3d3d3 !important;
+  cursor: not-allowed;
+}
+
 .section-buy-header,
-.section-property-details {
+.section-property-details,
+.section-profile-view {
   display: flex;
   justify-content: space-between;
   width: 90%;

@@ -1,6 +1,5 @@
-const User = require("../models/user.model");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+import User from "../models/user.model.js";
+import jwt from "jsonwebtoken";
 
 const UserController = {
   getAll: async (req, res) => {
@@ -43,4 +42,4 @@ const UserController = {
   },
 };
 
-module.exports = UserController;
+export default UserController;

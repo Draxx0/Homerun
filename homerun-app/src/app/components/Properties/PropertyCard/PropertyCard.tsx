@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { IProperty } from "../../../../api/utils/utils";
+import { IProperty } from "../../../../api/utils/property";
 import Location from "../../../assets/icons/location.png";
 import Home from "../../../assets/icons/menu-home.png";
 import { UserContext } from "../../../contexts/UserContext";

@@ -1,4 +1,4 @@
-import { IProperty } from "../../../../api/utils/utils";
+import { IProperty } from "../../../../api/utils/property";
 import { useContext, useEffect, useState } from "react";
 import { PropertiesContext } from "../../../contexts/PropertiesContext";
 import PropertyServices from "../../../../api/services/properties.service";
@@ -24,14 +24,10 @@ const MostViewedProperties = () => {
         ? mostViewedProperties
             ?.filter((property) => property.category === selectedCategory)
             .map((property: IProperty) => {
-              return (
-                <PropertyCard property={property}/>
-              );
+              return <PropertyCard property={property} />;
             })
         : mostViewedProperties?.map((property: IProperty) => {
-            return (
-              <PropertyCard property={property} key={property._id} />
-            );
+            return <PropertyCard property={property} key={property._id} />;
           })}
     </div>
   );
